@@ -1,0 +1,4 @@
+pa_t_voyage:
+    resource: "@PaTVoyageBundle/Resources/config/routing.yml"
+    prefix:   /voyage
+
