@@ -10,6 +10,7 @@ class VoyageController extends Controller
 	{
 		//$Repository = $this->getDoctrine()->getManager(); 
 		//$Voyage = $Repository->getRepository('PaTVoyageBundle:bddvoyage')->findAll();
+		/*eferfer*/
 		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('nom' => 'Adrien', 'test' => 'ceci est un test', 'ListeVoyage' => $Voyage));
 	}
 }
