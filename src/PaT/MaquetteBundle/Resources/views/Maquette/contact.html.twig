@@ -1,0 +1,72 @@
+{% extends "PaTMaquetteBundle::layout.html.twig" %}
+
+{% block title %}
+  About - {{ parent() }}
+{% endblock %}
+
+{% block PaT_body %}
+<!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Qui sommes nous ? <span class="text-muted">Just students =).</span></h2>
+          <p class="lead">Quatres étudiants d'Ingésup Bordeaux qui se lancent dans un projet simple et fou ! Un réseau social autour du voyage. Nous venons tous d'univers différents avec un point commun : la passion de l'informatique. <br>Martin Le Guillou, Adrien Marty, Aurélien Colombier et Julien Sigot sont heureux de partager avec vous l'experience Around The World.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{{ asset('images/System/ingesup.png') }}" alt="Around the World">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{{ asset('images/System/vacation-logo.jpg') }}" alt="Discover on web, travel in life =)">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Le projet ? <span class="text-muted">Share yourself.</span></h2>
+          <p class="lead">Après certains voyages dans des pays improbables, nous nous sommes rendu compte que les informations ne sont pas centralisées sur internet. Effectivement, peu de sites diffusent de l'info sur toutes les destinations du monde, et ce qui le font sont contrôlés par le monde professionnel et les lobbies du tourisme. Ainsi naquis notre projet ! Un site de partage de voyage communautaire ! Par les routards, pour les routards.<br>Nous avons divers projets sur la table : meilleur intégration de Maps, portage sur smartphone...</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Ecris nous ! <span class="text-muted">We are cool =).</span></h2>
+          <p class="lead">Tu peux nous écrire pour partager ton experience, faire un retour sur le site, ou pour quelconque autre question, nous répondrons au plus vite !</p>
+          <ul class="contact-fields">
+          	<li>eMail : contact@aroundtheworld.com</li>
+          	<br>
+          	<li>Adress : <ul><li>154 Patata Street, </li><li>55632 PatataCity,</li><li>PatataLand</li></ul></li>
+          </ul>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="{{ asset('images/System/contact.jpg') }}" alt="Contact us !">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Around the World, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+{% endblock %}
+
+{% block javascripts_page %}
+	<script type="text/javascript">ChangeNavSel('navAbout');</script>
+{% endblock %}

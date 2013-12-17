@@ -1,0 +1,7 @@
+Home:
+    path:  /maquette
+    defaults: { _controller: PaTMaquetteBundle:Maquette:index }
+
+Contact:
+    path:  /maquette/contact
+    defaults: { _controller: PaTMaquetteBundle:Maquette:contact }

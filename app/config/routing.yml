@@ -1,0 +1,4 @@
+pa_t_maquette:
+    resource: "@PaTMaquetteBundle/Resources/config/routing.yml"
+    prefix:   /
+

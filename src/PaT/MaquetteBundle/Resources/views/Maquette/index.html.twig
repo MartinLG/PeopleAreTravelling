@@ -1,0 +1,70 @@
+{% extends "PaTMaquetteBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block PaT_body %}
+  <h1 class="Thewelcome">Hello world :)</h1>
+
+  <hr>
+
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="{{ asset('images/sanfrancisco.jpg') }}" alt="First Travel">
+        <div class="carousel-caption">
+          <h3>San Francisco - USA</h3>
+          <p>Jordi Fernandez nous propose aujourd'hui un voyage au coeur des USA. Le pays du steak house et du burger, oui, il essai désespérément de prendre du poids.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('images/inde.jpg') }}" alt="Second Travel">
+        <div class="carousel-caption">
+          <h3>India</h3>
+          <p>Adrien Marty partage son voyage en Inde, où il a redécouvert sa spiritualité. Voyagez dans votre subconscient, l'opium y est présent.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('images/japon.jpeg') }}" alt="Third Travel">
+        <div class="carousel-caption">
+          <h3>Japan</h3>
+          <p>Julien Sigot nous emmène aux portes de la radioactivité. Fukushima tel que vous ne l'avez jamais vu. Il a aujourd'hui trois bras.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('images/pologne.jpg') }}" alt="Fourth Travel">
+        <div class="carousel-caption">
+          <h3>Poland</h3>
+          <p>Martin Le Guillou vous invite dans son royaume de femmes et de fêtes. Découvrez la culture Polonaise, de l'interieur.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{{ asset('images/berlin.jpg') }}" alt="Fifth Travel">
+        <div class="carousel-caption">
+          <h3>Berlin</h3>
+          <p>Quand Aurélien Colombier mixe, Berlin s'endort. Mixer a 8h30 tous les matin dans une petite boite est une experience a ne pas rater.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+  </div>
+
+{% endblock %}
