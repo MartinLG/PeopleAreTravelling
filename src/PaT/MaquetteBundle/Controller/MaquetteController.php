@@ -11,8 +11,8 @@ class MaquetteController extends Controller
         return $this->render('PaTMaquetteBundle:Maquette:index.html.twig');
     }
 
-    public function contactAction()
+    public function aboutAction()
     {
-        return $this->render('PaTMaquetteBundle:Maquette:contact.html.twig');
+        return $this->render('PaTMaquetteBundle:Maquette:about.html.twig');
     }
 }

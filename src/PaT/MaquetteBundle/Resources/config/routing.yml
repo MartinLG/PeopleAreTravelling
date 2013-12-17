@@ -2,6 +2,6 @@ Home:
     path:  /maquette
     defaults: { _controller: PaTMaquetteBundle:Maquette:index }
 
-Contact:
-    path:  /maquette/contact
-    defaults: { _controller: PaTMaquetteBundle:Maquette:contact }
+About:
+    path:  /maquette/about
+    defaults: { _controller: PaTMaquetteBundle:Maquette:about }
