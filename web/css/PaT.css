@@ -1,0 +1,109 @@
+html {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+body {
+  padding-top: 70px;
+  text-align: center;
+}
+
+.Thewelcome{
+	text-align: center;
+}
+
+.btn-connect{
+	margin-top: 8px;
+}
+
+.btn-close-connection{
+	float: left;
+}
+
+.modal-body{
+	text-align: left;
+}
+
+.tab-login, .tab-signin{
+	font-size: 20px;
+	width: 50%;
+}
+
+.contact-fields{
+	font-size: 20px;
+	text-align: left;
+}
+
+.nameUser{
+	margin-top: 11px;
+	margin-right: 10px;
+	font-size: 19px;
+}
+
+.formuLog{
+	width: 500px;
+	text-align: left;
+	left: 50%;
+	margin: auto;
+}
+
+/* Caroussel */
+
+ul { 
+list-style-type: none; 
+}
+
+li[id^="li"]{
+	display:inline-block;
+	margin-right: 30px;
+	margin-bottom: 20px;
+}
+
+.liselect{
+	color:white;
+	background-color: #f27a2e;
+	padding: 8px 13px 8px 13px;
+	transition: background 0.5s;
+}
+
+.noselec{
+	padding: 8px 13px 8px 13px;
+}
+
+.noselec:hover{
+	color:white;
+	background-color: #f27a2e;
+	padding: 8px 13px 8px 13px;
+	transition: background 0.5s;
+}
+
+
+ #chevgauche{
+ 	position: absolute;
+ 	padding-top: 125px;
+ 	padding-bottom: 125px;
+ 	margin-top: 20px;
+ }
+
+ #chevgauche:hover{
+ 	background-color: #f27a2e;
+ 	transition: background 0.5s;
+ }
+
+  #chevdroit{
+ 	position: absolute;
+ 	padding-top: 125px;
+ 	padding-bottom: 125px;
+ 	margin-top: 20px;
+ 	margin-left: -50px;
+ }
+
+  #chevdroit:hover{
+ 	background-color: #f27a2e;
+ 	transition: background 0.5s;
+ }
+
+#imgHTML {
+box-shadow: 4px 4px 8px 1px grey;
+margin-top: 20px;
+margin-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container main-page">
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block PaT_body %}
+  {% endblock %}
+    </div>
+{% endblock %}

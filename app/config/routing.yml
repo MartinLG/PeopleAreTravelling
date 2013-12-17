@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 pa_t_voyage:
     resource: "@PaTVoyageBundle/Resources/config/routing.yml"
     prefix:   /voyage
+=======
+pa_t_maquette:
+    resource: "@PaTMaquetteBundle/Resources/config/routing.yml"
+    prefix:   /
+>>>>>>> 26531475e734a12b0791e4a9d91041294e9956fd
 
