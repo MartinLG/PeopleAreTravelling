@@ -1,0 +1,29 @@
+{# src/PaT/UserBundle/Resources/views/Security/login.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block body %}  
+
+  <div class="container">
+    {% if error %}
+      <div class="alert alert-danger">Bad login or password !</div>
+    {% endif %}
+    <div class="formuLog" >
+      <form action="{{ path('fos_user_security_check') }}" method="post">
+        <div class="form-group">
+          <label for="username">Login :</label>
+          <input type="text" class="form-control" id="username" name="_username" />
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" class="form-control" name="_password" />
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+          <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+        </div>
+        <button type="submit" class="btn btn-success">Log In</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
