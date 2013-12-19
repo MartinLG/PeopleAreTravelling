@@ -1,0 +1,54 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+{% block title %}
+  Ajouter un Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_centrale %}
+  <h2>Nouveau Voyage</h2>
+  <div class="well" role="form">
+    <form method="post" {{ form_enctype(form) }}>
+      <div class="form-group">
+        {{ form_label(form.titre, "Titre de l'article") }}
+        {{ form_errors(form.titre) }}
+        {{ form_widget(form.titre) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_label(form.lieu, "Lieu du séjours") }}
+        {{ form_errors(form.lieu) }}
+        {{ form_widget(form.lieu) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_label(form.budget, "Budget") }}
+        {{ form_errors(form.budget) }}
+        {{ form_widget(form.budget) }}
+      </div> 
+
+      <div class="form-group">
+        <div>
+          {{ form_label(form.datedebut, "Date de départ") }}
+          {{ form_errors(form.datedebut) }}
+          {{ form_widget(form.datedebut) }}
+        </div>
+
+        <div class="form-group">
+          {{ form_label(form.datefin, "Date de retour") }}
+          {{ form_errors(form.datefin) }}
+          {{ form_widget(form.datefin) }}
+        </div>
+      </div>
+
+      <div class="form-group">
+          {{ form_label(form.description, "Présentation") }}
+          {{ form_errors(form.description) }}
+          {{ form_widget(form.description) }}
+      </div>
+      {{ form_rest(form)}}
+
+      {# form_widget(form) #}
+      <input type="submit" class="btn btn-primary" />
+    </form>
+  </div>
+{% endblock %}

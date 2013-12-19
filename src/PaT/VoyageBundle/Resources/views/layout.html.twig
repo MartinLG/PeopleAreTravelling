@@ -1,0 +1,38 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<div class="container main-page">
+
+		{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+		
+		{% block PaT_body %}
+			<h1> Page session</h1>
+			{# Premiére colone #}
+			<div class="col-md-3">
+				<h3>Option Utilisateurs</h3>
+
+				<ul>
+					<li><a href="{{ path('pa_t_voyage_homepage') }}">Retour à l'Index</a></li>
+					<li><a href="{{ path('pa_t_voyage_add') }}">Ajouter un voyage</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				{# Deuxiéme colone #}
+				{% block Column_centrale %}
+
+				{% endblock %}
+			</div>
+
+			{# Troisiéme colone #}
+			<div class="col-md-3">
+				<h3>Colone en + ;)</h3>
+			</div>
+		{% endblock %}
+
+	</div>
+{% endblock %}

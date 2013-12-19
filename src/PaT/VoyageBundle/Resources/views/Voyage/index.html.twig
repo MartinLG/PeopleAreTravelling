@@ -1,0 +1,30 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+{% block title %}
+  Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_centrale %}
+
+{# Deuxiéme colone #}
+	<h3>Affichage de vos voyage</h3>
+
+	<ul>
+		{% for voyage in ListeVoyage %}
+
+		<li><a class="lien" href="#">
+			<div class="table">
+				<table>
+					<tr><td colspan="3" >{{voyage.Titre}}</td></tr>
+					<tr><td width="33.3%"> Lieu : {{ voyage.lieu }}</td><td width="33.3%"> Durée : {{ voyage.duree }} jours</td><td width="33.4%"> Budget : {{ voyage.budget }}€</td></tr> 
+					<tr><td colspan="3">Du {{ voyage.datedebut|date('d/m/Y') }} au {{ voyage.datefin|date('d/m/Y') }}</td></tr></tr> 
+					<tr><td colspan="3">{{ voyage.description }}</td></tr>
+				</table>
+			</div>
+		</a></li>
+		<table width="100%"><tr><td width="50%"><a href="{{ path('pa_t_voyage_delete', { 'id' : voyage.id })}}">Supprimer</a></td><td width="50%"><a href="#">Modifier</a></td></tr></table>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
+

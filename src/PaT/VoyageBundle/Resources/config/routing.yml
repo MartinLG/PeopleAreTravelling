@@ -1,3 +1,13 @@
 pa_t_voyage_homepage:
     pattern:  /index
     defaults: { _controller: PaTVoyageBundle:Voyage:index }
+
+pa_t_voyage_add:
+    pattern: /add
+    defaults: { _controller: PaTVoyageBundle:Voyage:ajouter }
+
+pa_t_voyage_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: PaTVoyageBundle:Voyage:supprimer }
+    requirements:
+        id: \d+
