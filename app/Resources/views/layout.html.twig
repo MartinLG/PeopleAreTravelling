@@ -49,12 +49,12 @@
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
-{#            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
               <li class="nameUser">Welcome {{ app.user.username }} !</li>
               <li><button type="button" class="btn btn-danger btn-connect" onclick="self.location.href='{{ path('fos_user_security_logout') }}'">Log Out</button></li>
-            {% else %} #}
+            {% else %} 
               <li><button type="button" class="btn btn-success btn-connect" data-toggle="modal" data-target="#ModalConnect">Log In</button></li>
-          {#  {% endif %}  #}
+            {% endif %}
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -73,7 +73,7 @@
           <div class="modal-body">
             <div class="tab-content">
               <div class="tab-pane fade in active" id="connection">
-                <form action="#" method="post">
+                <form action="{{ path('fos_user_security_check') }}" method="post">
                   <div class="form-group">
                     <label for="username">Login :</label>
                     <input type="text" class="form-control" id="username" name="_username" />
@@ -84,7 +84,7 @@
                   </div>
                   <div class="form-group">
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    <label for="remember_me">Se souvenir de moi</label>
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-close-connection" data-dismiss="modal">Close</button>
@@ -136,6 +136,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/PaT.js') }}"></script>
+    
     {% block javascripts_page %}
     {% endblock %}
   {% endblock %}
