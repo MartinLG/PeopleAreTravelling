@@ -22,7 +22,14 @@
 				</table>
 			</div>
 		</a></li>
-		<table width="100%"><tr><td width="50%"><a href="{{ path('pa_t_voyage_delete', { 'id' : voyage.id })}}">Supprimer</a></td><td width="50%"><a href="#">Modifier</a></td></tr></table>
+
+		<table width="100%">
+			<tr>
+				<td width="50%"><button type="button" class="btn btn-default btn-sm" href="{{ path('pa_t_voyage_delete', { 'id' : voyage.id })}}"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></td>
+				<td width="50%"><a href="#">Modifier</a></td>
+			</tr>
+		</table>
+
 		{% endfor %}
 	</ul>
 
