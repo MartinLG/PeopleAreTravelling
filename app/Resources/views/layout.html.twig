@@ -21,7 +21,7 @@
     <title>{% block title %}Around The World{% endblock %}</title>
 
     {% block stylesheets %}
-      <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+      <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" /> 
       <link rel="stylesheet" href="{{ asset('css/PaT.css') }}" type="text/css" />
     {% endblock %}
   </head>
@@ -38,17 +38,21 @@
           <a class="navbar-brand" href="{{ path('Home') }}">AroundTheWorld</a>
         </div>
         <div class="collapse navbar-collapse">
+
+            {# Les menus #}
+
           <ul class="nav navbar-nav">
             <li id="navHome" class="active"><a href="{{ path('Home') }}">Home</a></li>
             <li id="navNews"><a href="#">News</a></li>
-            <li id="navMap"><a href="#">Map</a></li>
-            <li id="navEarth"><a href="#">Earth</a></li>
+            <li id="navMap"><a href="{{ path('Map') }}">Map</a></li>
             <li id="navCountries"><a href="#">Countries</a></li>
             <li id="navBest"><a href="#">Best</a></li>
             <li id="navAccount"><a href="#">My Account</a></li>
             <li id="navAbout"><a href="{{ path('About') }}">About</a></li>
           </ul>
           
+            {# Affichage du nom et du bouton déconnexion si l'utilisateur est connecté #}
+
           <ul class="nav navbar-nav navbar-right">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
               <li class="nameUser">Welcome {{ app.user.username }} !</li>
@@ -73,6 +77,9 @@
           </div>
           <div class="modal-body">
             <div class="tab-content">
+
+                {# Formulaire Connexion (fonctionnel) #}
+
               <div class="tab-pane fade in active" id="connection">
                 <form action="{{ path('fos_user_security_check') }}" method="post">
                   <div class="form-group">
@@ -93,6 +100,9 @@
                   </div>
                 </form>
               </div>
+
+                {# Formulaire Registration (non fonctionnel) #}
+
               <div class="tab-pane fade" id="registration">
                 <form action="{{ path('fos_user_registration_register') }}" method="POST" class="fos_user_registration_register">
                   <div class="form-group">
@@ -135,7 +145,6 @@
 
 
   {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/PaT.js') }}"></script>

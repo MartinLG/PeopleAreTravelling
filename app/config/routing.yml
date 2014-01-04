@@ -1,3 +1,7 @@
+pa_t_map:
+    resource: "@PaTMapBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pa_t_user:
     resource: "@PaTUserBundle/Resources/config/routing.yml"
     prefix:   /

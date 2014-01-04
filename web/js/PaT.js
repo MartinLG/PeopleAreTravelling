@@ -1,3 +1,5 @@
+//Fonction Test pour changer de page active sur le Twitter Bootstrap (Fonctionne avec About et Home)
+
 function ChangeNavSel(page_name){
 	var home = document.querySelector('.active');
 	home.className = "";

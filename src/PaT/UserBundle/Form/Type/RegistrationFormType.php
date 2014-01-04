@@ -11,7 +11,7 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
-        // add your custom field
+        // Champs custom : country
         $builder->add('country');
     }
 

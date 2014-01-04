@@ -1,45 +1,56 @@
+/****************************************************************************************************
+
+
+
+		CSS PROVISOIRE -- Ce CSS est totalementa réorganiser, ceci fera l'objet d'un travail
+						  futur, dès lors que le site aura un peu plus de fonctionnalités.
+
+
+
+
+*****************************************************************************************************/
 html {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 70px;  /* Affiche sous la nav-bar */
   text-align: center;
 }
 
 .Thewelcome{
-	text-align: center;
+	text-align: center; /* Hello World */
 }
 
-.btn-connect{
+.btn-connect{			/* Descent le Bouton Connect dans la nav-bar */
 	margin-top: 8px;
 }
 
-.btn-close-connection{
+.btn-close-connection{	/* Fait flotter le bouton close du pop-up connexion a gauche */
 	float: left;
 }
 
-.modal-body{
+.modal-body{			/* Aligne le text a gauche dans le pop up connexion */
 	text-align: left;
 }
 
-.tab-login, .tab-signin{
+.tab-login, .tab-signin{	/* Permet d'avoir deux onglets qui prennent tout le pop-up et définit la taille de leurs titres */
 	font-size: 20px;
 	width: 50%;
 }
 
-.contact-fields{
+.contact-fields{		/* Affiche le champs contact dans la page About */
 	font-size: 20px;
 	text-align: left;
 }
 
-.nameUser{
+.nameUser{				/* Affiche le nom de l'utilisateur dans la Nav-Bar */
 	margin-top: 11px;
 	margin-right: 10px;
 	font-size: 19px;
 }
 
-.formuLog{
+.formuLog{				/* Mise en forme du formulaire de la PAGE Login */
 	width: 500px;
 	text-align: left;
 	left: 50%;
@@ -107,3 +118,6 @@ box-shadow: 4px 4px 8px 1px grey;
 margin-top: 20px;
 margin-bottom: 10px;
 }
+
+
+/* Fin du carrousel */

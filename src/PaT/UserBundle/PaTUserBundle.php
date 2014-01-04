@@ -8,6 +8,6 @@ class PaTUserBundle extends Bundle
 {
 	public function getParent()
 	{
-    	return 'FOSUserBundle';
+    	return 'FOSUserBundle';		//!IMPORTANT! Ce bundle hérite de FOSUserBundle
 	}
 }

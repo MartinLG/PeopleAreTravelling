@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-          <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+          <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>   {# Permet la traduction en Francais du "RememberMe" si l'utilisateur est en france #}
         </div>
         <button type="submit" class="btn btn-success">Log In</button>
       </form>
