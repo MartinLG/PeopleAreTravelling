@@ -1,5 +1,6 @@
 {# app/Resources/views/layout.html.twig #}
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -93,30 +94,32 @@
                 </form>
               </div>
               <div class="tab-pane fade" id="registration">
-                <div class="form-group">
-                  <label for="exampleInputPseudo1">Pseudo</label>
-                  <input type="text" class="form-control" id="exampleInputPseudo1" placeholder="Enter Pseudo">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword2">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword3">Password again</label>
-                  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail2">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputCountry1">Country</label>
-                  <input type="text" class="form-control" id="exampleInputCountry1" placeholder="Your Country">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger btn-close-connection" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success">Sign In</button>
-                </div>
+                <form action="{{ path('fos_user_registration_register') }}" method="POST" class="fos_user_registration_register">
+                  <div class="form-group">
+                    <label for="exampleInputPseudo1">Pseudo</label>
+                    <input type="text" class="form-control" id="exampleInputPseudo1" placeholder="Enter Pseudo" name="_username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword3">Password again</label>
+                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputCountry1">Country</label>
+                    <input type="text" class="form-control" id="exampleInputCountry1" placeholder="Your Country">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-close-connection" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Sign In</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
