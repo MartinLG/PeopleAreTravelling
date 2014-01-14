@@ -1,0 +1,7 @@
+parameters:
+#    pa_t_map.example.class: PaT\MapBundle\Example
+
+services:
+#    pa_t_map.example:
+#        class: %pa_t_map.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
