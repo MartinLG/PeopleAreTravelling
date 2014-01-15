@@ -1,0 +1,17 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+{% block title %}
+  Ajouter un Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_centrale %}
+	<div>
+        {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.titre) }}
+        </div>
+      </div>
+
+      {{ form_rest(form)}}
+{% endblock %}
