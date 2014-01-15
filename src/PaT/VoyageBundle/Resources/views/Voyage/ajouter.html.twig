@@ -5,50 +5,68 @@
 {% endblock %}
 
 {% block Column_centrale %}
-  <h2>Nouveau Voyage</h2>
-  <div class="well" role="form">
-    <form method="post" {{ form_enctype(form) }}>
+  <h3>Nouveau Voyage</h3>
+
+  <div class="well" >
+    <form method="post" {{ form_enctype(form) }} role="form" class="form-horizontal">
+      
       <div class="form-group">
-        {{ form_label(form.titre, "Titre de l'article") }}
+        {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
         {{ form_errors(form.titre) }}
-        {{ form_widget(form.titre) }}
+        </div>
       </div>
 
       <div class="form-group">
-        {{ form_label(form.lieu, "Lieu du séjours") }}
+        {{ form_label(form.lieu, "Lieu du séjours", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
         {{ form_errors(form.lieu) }}
-        {{ form_widget(form.lieu) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.lieu, {'attr': {'class': 'form-control'}}) }}
+      </div>
       </div>
 
       <div class="form-group">
-        {{ form_label(form.budget, "Budget") }}
-        {{ form_errors(form.budget) }}
-        {{ form_widget(form.budget) }}
+        {{ form_label(form.budget, "Budget", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(form.budget, {'attr': {'class' : 'has-error'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.budget, {'attr': {'class': 'form-control'}}) }}
+        </div>
       </div> 
 
-      <div class="form-group">
-        <div>
-          {{ form_label(form.datedebut, "Date de départ") }}
-          {{ form_errors(form.datedebut) }}
-          {{ form_widget(form.datedebut) }}
-        </div>
 
-        <div class="form-group">
-          {{ form_label(form.datefin, "Date de retour") }}
-          {{ form_errors(form.datefin) }}
-          {{ form_widget(form.datefin) }}
+      <div class="form-group">
+        {{ form_label(form.datedebut, "Date de départ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(form.datedebut) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.datedebut, {'attr': {'class': 'form-control col-xs-2'}}) }}
         </div>
       </div>
 
       <div class="form-group">
-          {{ form_label(form.description, "Présentation") }}
+        {{ form_label(form.datefin, "Date de retour", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(form.datefin) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.datefin, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+
+
+      <div class="form-group">
+          {{ form_label(form.description, "Présentation", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
           {{ form_errors(form.description) }}
-          {{ form_widget(form.description) }}
+          <div class="col-sm-7">
+          {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows' : '5'}}) }}
+        </div>
       </div>
       {{ form_rest(form)}}
 
       {# form_widget(form) #}
-      <input type="submit" class="btn btn-primary" />
+      <div class="form-group">
+        <div class="col-sm-offset-8 col-sm-2">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </div>
     </form>
   </div>
 {% endblock %}

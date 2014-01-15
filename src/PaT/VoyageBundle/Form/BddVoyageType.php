@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class BddVoyageType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -19,9 +19,9 @@ class BddVoyageType extends AbstractType
         ->add('description',    'textarea')
         ->add('budget',         'money')
         ->add('lieu',           'country')
-        ->add('datedebut',      'date')
+        ->add('datedebut',      'date', array('years' => range(1960, date('Y'))))
         ->add('datefin',        'date')
-        ->add('duree',          'hidden', array('data' => 15))
+        ->add('duree',          'hidden', array('data' => 666))
         ->add('Like_count',     'hidden', array('data' => 0))
         ->add('Id_user',        'hidden', array('data' => 1))
         ->add('nbrarticle',     'hidden', array('data' => 0));

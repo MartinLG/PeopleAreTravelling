@@ -11,3 +11,9 @@ pa_t_voyage_delete:
     defaults: { _controller: PaTVoyageBundle:Voyage:supprimer }
     requirements:
         id: \d+
+
+pa_t_voyage_change:
+    pattern: /change/{id}
+    defaults: { _controller: PaTVoyageBundle:Voyage:modifier }
+    requirements:
+       id: \d+
