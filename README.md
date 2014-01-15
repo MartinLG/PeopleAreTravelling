@@ -10,8 +10,8 @@ Ce projet sera développé en PHP avec le framework [Symfony2][1].
 
 Notre application PeopleAreTravelling devra proposer plusieurs fonctionnalitées essentielles :
 
-  - Gestion des utilisateurs
-  - Connection par OAuth
+  - Gestion des utilisateurs ([FOSUserBundle][2])
+  - Connection par OAuth ([HWIOAuthBundle][3])
   - Partage de Voyages
   - Partage de Photos
   - Partage d'Articles
@@ -25,3 +25,5 @@ Notre application PeopleAreTravelling devra proposer plusieurs fonctionnalitées
   - Tri sélectif
 
 [1]:  http://symfony.com/
+[2]:  https://github.com/FriendsOfSymfony/FOSUserBundle
+[3]:  https://github.com/hwi/HWIOAuthBundle
