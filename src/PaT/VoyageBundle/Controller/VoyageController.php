@@ -96,16 +96,30 @@ class VoyageController extends Controller
 
 
 
-	public function supprimerAction($id)
+	public function supprimerAction(Travel $travelclass)
 	{
-	    $Repository = $this->getDoctrine()->getManager();
-	    $voyage = $Repository->getRepository('PaTVoyageBundle:bddVoyage')->find($id);
-	    $Repository->remove($voyage);
-	    $Repository->flush();
 
-      $this->get('session')->getFlashBag()->add('warning', 'Le voyage '. $id .' à bien été supprimé.');
+    $travelform = $this->createFormBuilder()->getForm();
+    $request = $this->getRequest();
 
-	    return $this->redirect($this->generateUrl('pa_t_voyage_homepage'));
+    if( $request->getMethod() == 'POST')
+    {
+
+      $travelform->bind($request);
+
+      if( $travelform->isValid())
+      {
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($travelclass);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->add('warning', 'Le voyage '. $travelclass->getId() .' à bien été supprimé.');
+        return $this->redirect($this->generateUrl('pa_t_voyage_homepage'));
+      }
+    }
+
+    return $this->render('PaTVoyageBundle:Voyage:delete.html.twig', array('voyage' => $travelclass, 'form' => $travelform->createView()));
 	}
 
   public function duree()
