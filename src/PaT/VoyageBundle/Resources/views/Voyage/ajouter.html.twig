@@ -8,60 +8,60 @@
   <h3>Nouveau Voyage</h3>
 
   <div class="well" >
-    <form method="post" {{ form_enctype(form) }} role="form" class="form-horizontal">
+    <form method="post" {{ form_enctype(travelform) }} role="form" class="form-horizontal">
       
       <div class="form-group">
-        {{ form_label(form.titre, "Titre de l'article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_label(travelform.title, "Titre de l'article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
         <div class="col-sm-7">
-        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(form.titre) }}
+        {{ form_widget(travelform.title, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(travelform.title) }}
         </div>
       </div>
 
       <div class="form-group">
-        {{ form_label(form.lieu, "Lieu du séjours", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-        {{ form_errors(form.lieu) }}
+        {{ form_label(travelform.place, "Lieu du séjours", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(travelform.place) }}
         <div class="col-sm-7">
-        {{ form_widget(form.lieu, {'attr': {'class': 'form-control'}}) }}
+        {{ form_widget(travelform.place, {'attr': {'class': 'form-control'}}) }}
       </div>
       </div>
 
       <div class="form-group">
-        {{ form_label(form.budget, "Budget", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-        {{ form_errors(form.budget, {'attr': {'class' : 'has-error'}}) }}
+        {{ form_label(travelform.budget, "Budget", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(travelform.budget, {'attr': {'class' : 'has-error'}}) }}
         <div class="col-sm-7">
-        {{ form_widget(form.budget, {'attr': {'class': 'form-control'}}) }}
+        {{ form_widget(travelform.budget, {'attr': {'class': 'form-control'}}) }}
         </div>
       </div> 
 
 
       <div class="form-group">
-        {{ form_label(form.datedebut, "Date de départ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-        {{ form_errors(form.datedebut) }}
+        {{ form_label(travelform.startdate, "Date de départ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(travelform.startdate) }}
         <div class="col-sm-7">
-        {{ form_widget(form.datedebut, {'attr': {'class': 'form-control col-xs-2'}}) }}
+        {{ form_widget(travelform.startdate, {'attr': {'class': 'form-control col-xs-2'}}) }}
         </div>
       </div>
 
       <div class="form-group">
-        {{ form_label(form.datefin, "Date de retour", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-        {{ form_errors(form.datefin) }}
+        {{ form_label(travelform.enddate, "Date de retour", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(travelform.enddate) }}
         <div class="col-sm-7">
-        {{ form_widget(form.datefin, {'attr': {'class': 'form-control'}}) }}
+        {{ form_widget(travelform.enddate, {'attr': {'class': 'form-control'}}) }}
         </div>
       </div>
 
 
       <div class="form-group">
-          {{ form_label(form.description, "Présentation", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-          {{ form_errors(form.description) }}
+          {{ form_label(travelform.description, "Présentation", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+          {{ form_errors(travelform.description) }}
           <div class="col-sm-7">
-          {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows' : '5'}}) }}
+          {{ form_widget(travelform.description, {'attr': {'class': 'form-control', 'rows' : '5'}}) }}
         </div>
       </div>
-      {{ form_rest(form)}}
+      {{ form_rest(travelform)}}
 
-      {# form_widget(form) #}
+      {# form_widget(travelform) #}
       <div class="form-group">
         <div class="col-sm-offset-8 col-sm-2">
           <input type="submit" class="btn btn-primary" />

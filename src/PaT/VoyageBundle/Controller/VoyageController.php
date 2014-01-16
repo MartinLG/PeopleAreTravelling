@@ -3,9 +3,10 @@
 namespace PaT\VoyageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use PaT\VoyageBundle\Form\BddVoyageType;
-use PaT\VoyageBundle\Form\BddVoyageEditType;
-use PaT\VoyageBundle\Entity\BddVoyage;
+use PaT\VoyageBundle\Entity\Travel;
+use PaT\VoyageBundle\Form\TravelType;
+use PaT\VoyageBundle\Form\TravelEditType;
+
 
 
 class VoyageController extends Controller
@@ -14,95 +15,83 @@ class VoyageController extends Controller
 	public function indexAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
-		$Voyage = $Repository->getRepository('PaTVoyageBundle:bddvoyage')->findAll();
+		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findAll();
 
-		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('nom' => 'Adrien', 'ListeVoyage' => $Voyage));
+		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $travel));
 	}
 
-	public function ajouterAction()
+	public function addtravelAction()
 	{
+    //creation de la classe et du formulaire
+    $travelclass = new Travel;
+    $travelform = $this->createForm(new TravelType, $travelclass);
 
-	/*****    Partie 1    *****/
-    //On déclare un nouvelle objet de type bddvoyage 
-    //On crée notre formulaire en appelant le constructeur Pat/VoyageBundle/Form/BddVoyageForm
-    
-    $Form_Voyage = new BddVoyage;
-    $form = $this->createForm(new BddVoyageType, $Form_Voyage);
-
-    /*****    Partie 2    *****/
-    //On récupére le type de la requete lors de l'accès au form
-    //Si le formulaire est de type POST, on rentre dans la fonction d'envois
-    //Sinon on affiche juste le formulaire (cf suite part2)
-
+    //annalyse du type de requete
     $request = $this->get('request');
 
     if($request->getMethod() == 'POST')
     {
-      //Lien entre Formulaire <-> Requête
-      //Action de bind():
-      //    La validation est exécutée
-      //    Les messages d'erreurs
-      //    Les valeurs par défaut
-      $form->bind($request);
 
-      /*****    Partie 3    *****/
-      //Envois des données
-      if($form->isValid())
+      $travelform->bind($request);
+
+      if($travelform->isValid())
       {
 
-        $datetime1 = $Form_Voyage->getDateDebut();
-        $datetime2 = $Form_Voyage->getDateFin();
-        $duree = $datetime1->diff($datetime2);
-        $duree = $duree->days;
-        $Form_Voyage->setDuree($duree);
+        //Remplissage automatique du champ duration
+        $datetime1 = $travelclass->getStartdate();
+        $datetime2 = $travelclass->getEnddate();
+        $duration = $datetime1->diff($datetime2);
+        $duration = $duration->days;
+        $travelclass->setDuration($duration);
 
+        //envois des donnees
         $em = $this->getDoctrine()->getManager();
-        $em->persist($Form_Voyage);
+        $em->persist($travelclass);
         $em->flush();
 
-        $this->get('session')->getFlashBag()->add('info', 'Votre nouveau voyage à bien été ajouté.');
-
+        //retour sur la page index
+        $this->get('session')->getFlashBag()->add('info', 'Votre nouveau voyage à bien été ajouté.'); 
         return $this->redirect($this->generateUrl('pa_t_voyage_homepage'));
       }
     }
 
-    /*****    Partie 2    *****/
-    //suite : retourne le formulaire
-    return $this->render('PaTVoyageBundle:Voyage:ajouter.html.twig', array('form' => $form->createView()));
+    //retourne le formulaire
+    return $this->render('PaTVoyageBundle:Voyage:ajouter.html.twig', array('travelform' => $travelform->createView()));
 	}
 
 
 
-  public function modifierAction(BddVoyage $Voyage)
-  {   
-    $form = $this->createForm(new BddVoyageEditType, $Voyage);
-
+  public function changeAction(Travel $travelclass)
+  {  
+    // on cree le formulair en fonction de traveleditetype 
+    $travelform = $this->createForm(new TravelEditType, $travelclass);
     $request = $this->get('request');
 
     if($request->getMethod() == 'POST')
     {
-       $form->bind($request);
+       $travelform->bind($request);
 
-       if($form->isValid())
+       if($travelform->isValid())
        {
 
-          $datetime1 = $Voyage->getDateDebut();
-          $datetime2 = $Voyage->getDateFin();
-          $duree = $datetime1->diff($datetime2);
-          $duree = $duree->days;
-          $Voyage->setDuree($duree);
+          //Remplissage automatique du champ duration
+          $datetime1 = $travelclass->getStartdate();
+          $datetime2 = $travelclass->getEnddate();
+          $duration = $datetime1->diff($datetime2);
+          $duration = $duration->days;
+          $travelclass->setDuration($duration);
 
           $em = $this->getDoctrine()->getManager();
-          $em->persist($Voyage);
+          $em->persist($travelclass);
           $em->flush();
 
-          $this->get('session')->getFlashBag()->add('info', 'Le voyage "'. $Voyage->getTitre() .'" à bien été modifié.');
+          $this->get('session')->getFlashBag()->add('info', 'Le voyage "'. $travelclass->getTitle() .'" à bien été modifié.');
 
-          return $this->redirect($this->generateUrl('pa_t_voyage_homepage', array('id' => $Voyage->getID())));
+          return $this->redirect($this->generateUrl('pa_t_voyage_homepage', array('id' => $travelclass->getID())));
         }
       }
 
-    return $this->render('PaTVoyageBundle:Voyage:ajouter.html.twig', array('form' => $form->createView(), 'voyage' => $Voyage));
+    return $this->render('PaTVoyageBundle:Voyage:ajouter.html.twig', array('travelform' => $travelform->createView(), 'voyage' => $travelclass));
   }
 
 

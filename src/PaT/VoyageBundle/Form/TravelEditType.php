@@ -5,7 +5,7 @@ namespace PaT\VoyageBundle\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BddVoyageEditType extends BddVoyageType
+class TravelEditType extends TravelType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -15,6 +15,6 @@ class BddVoyageEditType extends BddVoyageType
 
     public function getName()
     {
-        return 'pat_voyagebundle_bddvoyageedittype';
+        return 'pat_voyagebundle_traveledittype';
     }
 }

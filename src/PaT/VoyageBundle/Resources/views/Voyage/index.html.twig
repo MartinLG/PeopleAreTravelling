@@ -13,26 +13,26 @@
 		
 		{% for type, flashMessages in app.session.flashbag.all() %}
 		    {% for flashMessage in flashMessages %}
-		        <li><div class="table well well-lg flash-{{ type }}">
+		        <div class=" alert alert-success "><li class="">
 		            {{ flashMessage }}
-		        </div></li>
+		        </li></div>
 		    {% endfor %}
 		{% endfor %}
 		
-		{% for voyage in ListeVoyage %}
+		{% for Trip in TripList %}
 		<li  class="table well well-lg">
 			<a class="lien" href="#">
 				<table>
-					<tr><td colspan="3" >{{voyage.Titre}}</td></tr>
-					<tr><td width="33.3%"> Lieu : {{ voyage.lieu }}</td><td width="33.3%"> Durée : {{ voyage.duree }} jours</td><td width="33.4%"> Budget : {{ voyage.budget }}€</td></tr> 
-					<tr><td colspan="3">Du {{ voyage.datedebut|date('d/m/Y') }} au {{ voyage.datefin|date('d/m/Y') }}</td></tr>
-					<tr><td colspan="3">{{ voyage.description }}</td></tr>
+					<tr><td colspan="3" >{{Trip.title}}</td></tr>
+					<tr><td width="33.3%"> Lieu : {{ Trip.place }}</td><td width="33.3%"> Durée : {{ Trip.duration }} jours</td><td width="33.4%"> Budget : {{ Trip.budget }}€</td></tr> 
+					<tr><td colspan="3">Du {{ Trip.startdate|date('d/m/Y') }} au {{ Trip.enddate|date('d/m/Y') }}</td></tr>
+					<tr><td colspan="3">{{ Trip.description }}</td></tr>
 				</table>
 			</a>
 			<table width="100%">
 				<tr>
-					<td width="50%"><a href="{{ path('pa_t_voyage_delete', { 'id' : voyage.id })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></a></td>
-					<td width="50%"><a href="{{ path('pa_t_voyage_change', { 'id' : voyage.id })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></td>
+					<td width="50%"><a href="{{ path('pa_t_voyage_delete', { 'id' : Trip.id })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></a></td>
+					<td width="50%"><a href="{{ path('pa_t_voyage_change', { 'id' : Trip.id })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></td>
 				</tr>
 			</table>
 		</li>
