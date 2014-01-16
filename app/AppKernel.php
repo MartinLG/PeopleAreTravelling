@@ -5,7 +5,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function registerBundles()
+    public function registerBundles()           // Ici sont ajouté tous nos bundles et les bundles utilisés
     {
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
@@ -17,7 +17,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new PaT\VoyageBundle\PaTVoyageBundle(),
-            new PaT\MaquetteBundle\PaTMaquetteBundle(),
+            new PaT\MaquetteBundle\PaTMaquetteBundle(),     //Bundle Maquette, pour visualiser le site
+            new PaT\UserBundle\PaTUserBundle(),             //Bundle User pour gérer les connections utilisateurs
+            new FOS\UserBundle\FOSUserBundle(),             //Bundle FOSUser pour avoir une base sur notre Bundle User
+            new PaT\MapBundle\PaTMapBundle(),               //Bundle Map pour afficher l'API Google Maps et notre layout
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

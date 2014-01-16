@@ -1,0 +1,3 @@
+Map:
+    pattern:  /map
+    defaults: { _controller: PaTMapBundle:Map:map }
