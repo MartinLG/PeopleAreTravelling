@@ -1,7 +1,7 @@
 Home:
-    path:  /maquette
+    path:  /
     defaults: { _controller: PaTMaquetteBundle:Maquette:index }
 
 About:
-    path:  /maquette/about
+    path:  /about
     defaults: { _controller: PaTMaquetteBundle:Maquette:about }
