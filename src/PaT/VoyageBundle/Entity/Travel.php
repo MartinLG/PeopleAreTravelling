@@ -70,6 +70,17 @@ class Travel
      */
     private $description;
 
+    /**
+     * @var \time
+     *
+     * @ORM\Column(name="publicationdate", type="datetime")
+     */
+    private $publicationdate;
+
+    public function __construct()
+    {
+        $this->publicationdate = new \DateTime("now");
+    }
 
     /**
      * Get id
@@ -240,5 +251,28 @@ class Travel
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set publicationdate
+     *
+     * @param \DateTime $publicationdate
+     * @return Travel
+     */
+    public function setPublicationdate($publicationdate)
+    {
+        $this->publicationdate = $publicationdate;
+
+        return $this;
+    }
+
+    /**
+     * Get publicationdate
+     *
+     * @return \DateTime 
+     */
+    public function getPublicationdate()
+    {
+        return $this->publicationdate;
     }
 }
