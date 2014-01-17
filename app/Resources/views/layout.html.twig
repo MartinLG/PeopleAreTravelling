@@ -1,6 +1,5 @@
 {# app/Resources/views/layout.html.twig #}
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -101,30 +100,31 @@
                 </form>
               </div>
 
-                {# Formulaire Registration (non fonctionnel) #}
+                {# Formulaire Registration #}
 
               <div class="tab-pane fade" id="registration">
                 <form action="{{ path('fos_user_registration_register') }}" method="POST" class="fos_user_registration_register">
                   <div class="form-group">
                     <label for="exampleInputPseudo1">Pseudo</label>
-                    <input type="text" class="form-control" id="exampleInputPseudo1" placeholder="Enter Pseudo" name="username">
+                    <input type="text" class="form-control" id="exampleInputPseudo1" placeholder="Enter Pseudo" name="fos_user_registration_form[username]">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword2">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="fos_user_registration_form[plainPassword][first]">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword3">Password again</label>
-                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password_confirmation">
+                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="fos_user_registration_form[plainPassword][second]">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail2">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" name="email">
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email" name="fos_user_registration_form[email]">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputCountry1">Country</label>
-                    <input type="text" class="form-control" id="exampleInputCountry1" placeholder="Your Country" name="country">
+                    <input type="text" class="form-control" id="exampleInputCountry1" placeholder="Your Country" name="fos_user_registration_form[country]">
                   </div>
+                  <input type="hidden" id="fos_user_registration_form__token" name="fos_user_registration_form[_token]" value="{{ fos_csrf_provider.generateCsrfToken('registration') }}">
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-close-connection" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-success">Sign In</button>
