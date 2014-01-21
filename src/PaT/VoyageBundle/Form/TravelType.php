@@ -22,6 +22,7 @@ class TravelType extends AbstractType
             ->add('startdate',          'date', array('years' => range(1960, date('Y'))))
             ->add('enddate',            'date', array('years' => range(1960, date('Y'))))
             ->add('description',        'textarea')
+            ->add('iduser',             'hidden', array('data' => 1))
         ;
     }
     
