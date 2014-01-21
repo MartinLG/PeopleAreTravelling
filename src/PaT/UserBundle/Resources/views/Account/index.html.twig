@@ -1,72 +1,54 @@
-{% extends "PaTMaquetteBundle::layout.html.twig" %}
+{% extends "PaTUserBundle::layout.html.twig" %}
 
 {% block title %}
-  About - {{ parent() }}
+  Account - {{ parent() }}
 {% endblock %}
 
-{% block PaT_body %}
-<!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+  {% block Column_right %}
+    <h3>Menu</h3>
+          
+    <div class="well well-lg">
+      <ul class="list-menu">
+        <li><a href="{{ path('pa_t_voyage_homepage') }}">My travels</a></li>
+        <hr>
+        <li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+        <hr>
+        <li><a href="#">Change profile picture</a></li>
+        <hr>
+        <li><a href="#">My followed travellers</a></li>
+      </ul>
+    </div>
+  {% endblock %}
 
-    <div class="container marketing">
 
+  {% block Column_central %}
+    <h3>Personnal Informations</h3>
 
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Qui sommes nous ? <span class="text-muted">Just students =).</span></h2>
-          <p class="lead">Quatres étudiants d'Ingésup Bordeaux qui se lancent dans un projet simple et fou ! Un réseau social autour du voyage. Nous venons tous d'univers différents avec un point commun : la passion de l'informatique. <br>Martin Le Guillou, Adrien Marty, Aurélien Colombier et Julien Sigot sont heureux de partager avec vous l'experience Around The World.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="{{ asset('images/System/ingesup.png') }}" alt="Around the World">
-        </div>
+    <div class="well">
+      <div class="profile-picture-account">
+        <img src="{{ asset('images/profile_pic.gif') }}">
       </div>
+      <div class="personnal-infos">
+        <p class="pseudo-account"><strong class="gras">Username :</strong> {{ app.user.username }}</p>
+        <p class="status-account"><strong class="gras">Status :</strong> {{ app.user.status }}</p>
+        <p class="birthdate-account"><strong class="gras">Birthdate :</strong> {{ app.user.birthdate|date("m/d/Y", "Europe/Paris") }}</p>
+        <p class="country-account"><strong class="gras">Country :</strong> {{ app.user.country }}</p>
+        <p class="visited-countries-account"><strong class="gras">Visited countries :</strong> {{ app.user.visitedcountries }}</p>
+        <p class="email-account"><strong class="gras">Email :</strong> {{ app.user.email }}</p>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="{{ asset('images/System/vacation-logo.jpg') }}" alt="Discover on web, travel in life =)">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Le projet ? <span class="text-muted">Share yourself.</span></h2>
-          <p class="lead">Après certains voyages dans des pays improbables, nous nous sommes rendu compte que les informations ne sont pas centralisées sur internet. Effectivement, peu de sites diffusent de l'info sur toutes les destinations du monde, et ce qui le font sont contrôlés par le monde professionnel et les lobbies du tourisme. Ainsi naquis notre projet ! Un site de partage de voyage communautaire ! Par les routards, pour les routards.<br>Nous avons divers projets sur la table : meilleur intégration de Maps, portage sur smartphone...</p>
-        </div>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Ecris nous ! <span class="text-muted">We are cool =).</span></h2>
-          <p class="lead">Tu peux nous écrire pour partager ton experience, faire un retour sur le site, ou pour quelconque autre question, nous répondrons au plus vite !</p>
-          <ul class="contact-fields">
-          	<li>eMail : contact@aroundtheworld.com</li>
-          	<br>
-          	<li>Adress : <ul><li>154 Patata Street, </li><li>55632 PatataCity,</li><li>PatataLand</li></ul></li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="{{ asset('images/System/contact.jpg') }}" alt="Contact us !">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
+    </div>
+  {% endblock %}
 
 
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 Around the World, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+  {% block Column_left %}
+    <h3>My links</h3>
 
-    </div><!-- /.container -->
-
-{% endblock %}
+    <div class="well well-lg">
+      <p>test left</p>
+    </div>
+  {% endblock %}
 
 {% block javascripts_page %}
-	<script type="text/javascript">ChangeNavSel('navAbout');</script>
+	<script type="text/javascript">ChangeNavSel('navAccount');</script>
 {% endblock %}

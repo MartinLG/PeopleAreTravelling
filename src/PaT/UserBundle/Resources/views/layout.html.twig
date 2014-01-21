@@ -1,21 +1,38 @@
-{# src/PaT/UserBundle/Resources/views/layout.html.twig #}
-
-{# On étend notre layout #}
 {% extends "::layout.html.twig" %}
 
-{# Dans notre layout, il faut définir le block body #}
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
 {% block body %}
+  <div class="container main-page">
 
-  {% for type, messages in app.session.flashbag.all() %}
-    {% for key, message in messages %}
-      <div class="flash-{{ type }}">
-        {{ message|trans({}, 'FOSUserBundle') }}
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+    
+    {% block PaT_body %}
+      {# Premiére colone #}
+      <div class="col-md-2">
+
+        {% block Column_right %}
+        {% endblock %}
       </div>
-    {% endfor %}
-  {% endfor %}
 
-  {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
-  {% block fos_user_content %}
-  {% endblock fos_user_content %}
+      <div class="col-md-8">
+        {# Deuxiéme colone #}
+        {% block Column_central %}
 
+        {% endblock %}
+      </div>
+
+      {# Troisiéme colone #}
+      <div class="col-md-2">
+
+        {% block Column_left %}
+        <h3>Colone en + ;)</h3>
+        {% endblock %}
+
+      </div>
+    {% endblock %}
+
+  </div>
 {% endblock %}

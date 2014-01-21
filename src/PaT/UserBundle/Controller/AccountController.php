@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PaT\UserBundle\Entity\User;
 
 
-class VoyageController extends Controller
+class AccountController extends Controller
 {
 	public function indexAction()
     {

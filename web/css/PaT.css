@@ -148,3 +148,25 @@ margin-bottom: 10px;
   box-shadow: -2px 2px 2px rgba(33, 33, 33, 0.4);
   display: none;
 }
+
+
+
+/*	Page MyAccount	*/
+
+.list-menu{
+	padding-left: 0px;
+}
+
+.profile-picture-account{
+	display: inline-block;
+	float: left;
+}
+
+.gras{
+	text-decoration: bold;
+}
+
+.personnal-infos{
+	text-align: left;
+	margin-left: 320px;
+}
