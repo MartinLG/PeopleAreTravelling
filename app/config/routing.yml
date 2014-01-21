@@ -1,3 +1,7 @@
+pa_t_article:
+    resource: "@PaTArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pa_t_voyage:
     resource: "@PaTVoyageBundle/Resources/config/routing.yml"
     prefix:   /voyage
