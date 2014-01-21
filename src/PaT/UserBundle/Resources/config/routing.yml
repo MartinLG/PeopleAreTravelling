@@ -1,0 +1,3 @@
+Account:
+    path:  /myAccount
+    defaults: { _controller: PaTUserBundle:Account:index }
