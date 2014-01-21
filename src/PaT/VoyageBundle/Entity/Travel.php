@@ -77,6 +77,14 @@ class Travel
      */
     private $publicationdate;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="iduser", type="integer")
+     */
+    private $iduser;
+
+
     public function __construct()
     {
         $this->publicationdate = new \DateTime("now");
@@ -274,5 +282,28 @@ class Travel
     public function getPublicationdate()
     {
         return $this->publicationdate;
+    }
+
+    /**
+     * Set iduser
+     *
+     * @param integer $iduser
+     * @return Travel
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    /**
+     * Get iduser
+     *
+     * @return integer 
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
     }
 }
