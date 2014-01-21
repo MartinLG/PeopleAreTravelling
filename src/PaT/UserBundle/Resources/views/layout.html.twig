@@ -20,7 +20,8 @@
       <div class="col-md-8">
         {# Deuxiéme colone #}
         {% block Column_central %}
-
+          {% block fos_user_content %}
+          {% endblock %}
         {% endblock %}
       </div>
 
@@ -28,7 +29,6 @@
       <div class="col-md-2">
 
         {% block Column_left %}
-        <h3>Colone en + ;)</h3>
         {% endblock %}
 
       </div>
