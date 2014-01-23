@@ -5,3 +5,11 @@ Account:
 Change_Status:
     path:  /myAccount/Change-Status
     defaults: { _controller: PaTUserBundle:ChangeStatus:index }
+
+Change_Birthdate:
+    path:  /myAccount/Change-Birthdate
+    defaults: { _controller: PaTUserBundle:ChangeBirthdate:index }
+
+Change_Country:
+    path:  /myAccount/Change-Country
+    defaults: { _controller: PaTUserBundle:ChangeCountry:index }

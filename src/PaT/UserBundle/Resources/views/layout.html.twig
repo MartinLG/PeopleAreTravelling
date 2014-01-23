@@ -14,6 +14,25 @@
       <div class="col-md-2">
 
         {% block Column_right %}
+          <h3>Menu</h3>
+          
+          <div class="well well-lg">
+            <ul class="list-menu">
+              <li><a href="{{ path('pa_t_voyage_homepage') }}">My travels</a></li>
+              <hr>
+              <li><a href="{{ path('Change_Status') }}">Change status</a></li>
+              <hr>
+              <li><a href="{{ path('Change_Country') }}">Change country</a></li>
+              <hr>
+              <li><a href="{{ path('Change_Birthdate') }}">Change birthdate</a></li>
+              <hr>
+              <li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+              <hr>
+              <li><a href="#">Change profile picture</a></li>
+              <hr>
+              <li><a href="#">My followed travellers</a></li>
+            </ul>
+          </div>
         {% endblock %}
       </div>
 

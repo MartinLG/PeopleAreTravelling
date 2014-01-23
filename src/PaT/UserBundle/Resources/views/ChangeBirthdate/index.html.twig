@@ -5,18 +5,18 @@
 {% endblock %}
 
   {% block Column_central %}
-    <h3>Change Status</h3>
+    <h3>Change Birthdate</h3>
 
     <div class="well">
-      <p>We Will change your status =)</p>
+      <p>We Will change your birthdate =)</p>
 
       <form method="post" {{ form_enctype(form) }} role="form" class="form-horizontal">
       
         <div class="form-group">
-          {{ form_label(form.status, "Your new status :", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+          {{ form_label(form.birthdate, "Your new birthdate :", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
           <div class="col-sm-7">
-          {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
-          {{ form_errors(form.status) }}
+          {{ form_widget(form.birthdate, {'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(form.birthdate) }}
           </div>
         </div>
         
