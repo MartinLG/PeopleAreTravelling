@@ -26,6 +26,14 @@
   {% block Column_central %}
     <h3>Personnal Informations</h3>
 
+    {% for type, flashMessages in app.session.flashbag.all() %}
+        {% for flashMessage in flashMessages %}
+            <div class=" alert alert-success "><li class="">
+                {{ flashMessage }}
+            </li></div>
+        {% endfor %}
+    {% endfor %}
+
     <div class="well">
       <div class="profile-picture-account">
         <img src="{{ asset('images/profile_pic.gif') }}">

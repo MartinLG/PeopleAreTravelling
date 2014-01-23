@@ -1,0 +1,25 @@
+Scénario Principal utilisateur :
+
+Postulat : Le site est totalement chargé
+
+
+1) Utilisateur arrive sur le site
+2) L'utilisateur se connecte sur le site
+3) L'utilisateur va sur la page Account
+4) L'utilisateur va sur le menu Edit Status
+5) L'utilisateur marque un nouveau status et valide le formulaire
+6) Le formulaire est vérifié
+7) Le status est changé dans la base de données
+8) L'utilisateur est redirigé sur la page Account avec une notification succès
+9) L'utilisateur va sur le menu My travels
+10) L'utilisateur va sur le menu Ajouter un Voyage
+11) L'utilisateur remplis tous les champs du formulaires et le valide
+12) Le formulaire est vérifié
+13) Le voyage est ajouté dans la base de données
+14) L'utilisateur est redirigé vers la page My travels avec une notification succès
+15) L'utilisateur va sur l'onglet News
+16) L'utilisateur repère un voyage qui l'interresse et clique dessus
+17) L'utilisateur est redirigé vers la page du voyage correspondant
+18) L'utilisateur ajoute ce voyage aux favoris
+19) L'utilisateur ayant effectué ce voyage est automatiquement ajouté aux "Followed Travellers" de l'utilisateur
+20) L'utilisateur se déconnecte
