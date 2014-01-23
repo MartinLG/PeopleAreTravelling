@@ -15,13 +15,14 @@ class TravelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',       'text')
-            ->add('place',       'country')
-            ->add('budget',      'money')
-            ->add('duration',    'hidden')
-            ->add('startdate',   'date', array('years' => range(1960, date('Y'))))
-            ->add('enddate',     'date', array('years' => range(1960, date('Y'))))
-            ->add('description', 'textarea')
+            ->add('title',              'text')
+            ->add('place',              'country')
+            ->add('budget',             'money')
+            ->add('duration',           'hidden')
+            ->add('startdate',          'date', array('years' => range(1960, date('Y'))))
+            ->add('enddate',            'date', array('years' => range(1960, date('Y'))))
+            ->add('description',        'textarea')
+            ->add('iduser',             'hidden', array('data' => 1))
         ;
     }
     

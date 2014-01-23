@@ -70,6 +70,25 @@ class Travel
      */
     private $description;
 
+    /**
+     * @var \time
+     *
+     * @ORM\Column(name="publicationdate", type="datetime")
+     */
+    private $publicationdate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="iduser", type="integer")
+     */
+    private $iduser;
+
+
+    public function __construct()
+    {
+        $this->publicationdate = new \DateTime("now");
+    }
 
     /**
      * Get id
@@ -240,5 +259,51 @@ class Travel
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set publicationdate
+     *
+     * @param \DateTime $publicationdate
+     * @return Travel
+     */
+    public function setPublicationdate($publicationdate)
+    {
+        $this->publicationdate = $publicationdate;
+
+        return $this;
+    }
+
+    /**
+     * Get publicationdate
+     *
+     * @return \DateTime 
+     */
+    public function getPublicationdate()
+    {
+        return $this->publicationdate;
+    }
+
+    /**
+     * Set iduser
+     *
+     * @param integer $iduser
+     * @return Travel
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
+
+    /**
+     * Get iduser
+     *
+     * @return integer 
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
     }
 }

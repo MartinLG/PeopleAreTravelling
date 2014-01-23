@@ -15,7 +15,7 @@ class VoyageController extends Controller
 	public function indexAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
-		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findAll();
+		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array('iduser' => 1), array('publicationdate' => 'desc'), 10, 0);
 
 		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $travel));
 	}
