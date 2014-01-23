@@ -1,0 +1,45 @@
+{% extends "PaTUserBundle::layout.html.twig" %}
+
+{% block title %}
+  Account - {{ parent() }}
+{% endblock %}
+
+  {% block Column_right %}
+    <h3>Menu</h3>
+          
+    <div class="well well-lg">
+      <ul class="list-menu">
+        <li><a href="{{ path('pa_t_voyage_homepage') }}">My travels</a></li>
+        <hr>
+        <li><a href="{{ path('Change_Status') }}">Change status</a></li>
+        <hr>
+        <li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+        <hr>
+        <li><a href="#">Change profile picture</a></li>
+        <hr>
+        <li><a href="#">My followed travellers</a></li>
+      </ul>
+    </div>
+  {% endblock %}
+
+  {% block Column_central %}
+    <h3>Change Status</h3>
+
+    <div class="well">
+      <p>We Will change your status =)</p>
+    </div>
+  {% endblock %}
+
+
+
+  {% block Column_left %}
+    <h3>My links</h3>
+
+    <div class="well well-lg">
+      <p>test left</p>
+    </div>
+  {% endblock %}
+
+{% block javascripts_page %}
+  <script type="text/javascript">ChangeNavSel('navAccount');</script>
+{% endblock %}

@@ -1,3 +1,7 @@
 Account:
     path:  /myAccount
     defaults: { _controller: PaTUserBundle:Account:index }
+
+Change_Status:
+    path:  /myAccount/Change-Status
+    defaults: { _controller: PaTUserBundle:ChangeStatus:index }
