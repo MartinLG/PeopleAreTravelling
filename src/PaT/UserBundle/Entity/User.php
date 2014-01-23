@@ -28,21 +28,21 @@ class User extends BaseUser
   private $country;
 
   /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      *
      * 
      */
   private $birthdate;
 
   /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * 
      */
   private $status;
 
   /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      *
      * 
      */

@@ -31,7 +31,7 @@
       <div class="personnal-infos">
         <p class="pseudo-account"><strong class="gras">Username :</strong> {{ app.user.username }}</p>
         <p class="status-account"><strong class="gras">Status :</strong> {{ app.user.status }}</p>
-        <p class="birthdate-account"><strong class="gras">Birthdate :</strong> {{ app.user.birthdate|date("m/d/Y", "Europe/Paris") }}</p>
+        <p class="birthdate-account"><strong class="gras">Birthdate :</strong> {% if app.user.birthdate == NULL %} Undefined {% else %} {{ app.user.birthdate|date("m/d/Y", "Europe/Paris") }} {% endif %}</p>
         <p class="country-account"><strong class="gras">Country :</strong> {{ app.user.country }}</p>
         <p class="visited-countries-account"><strong class="gras">Visited countries :</strong> {{ app.user.visitedcountries }}</p>
         <p class="email-account"><strong class="gras">Email :</strong> {{ app.user.email }}</p>
