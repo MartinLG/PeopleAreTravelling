@@ -1,0 +1,43 @@
+{% extends "PaTUserBundle::layout.html.twig" %}
+
+{% block title %}
+  Account - {{ parent() }}
+{% endblock %}
+
+  {% block Column_central %}
+    <h3>Change Visited Countries</h3>
+
+    <div class="well">
+
+      <form method="post" {{ form_enctype(form) }} role="form" class="form-horizontal">
+      
+        <div class="form-group">
+          {{ form_label(form.visitedcountries, "Your new visited countries :", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+          <div class="col-sm-7">
+          {{ form_widget(form.visitedcountries, {'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(form.visitedcountries) }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-sm-offset-8 col-sm-2">
+            <input type="submit" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+    </div>
+  {% endblock %}
+
+
+
+  {% block Column_left %}
+    <h3>My links</h3>
+
+    <div class="well well-lg">
+      <p>test left</p>
+    </div>
+  {% endblock %}
+
+{% block javascripts_page %}
+  <script type="text/javascript">ChangeNavSel('navAccount');</script>
+{% endblock %}

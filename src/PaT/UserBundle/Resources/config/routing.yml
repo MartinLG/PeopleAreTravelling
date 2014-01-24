@@ -13,3 +13,7 @@ Change_Birthdate:
 Change_Country:
     path:  /myAccount/Change-Country
     defaults: { _controller: PaTUserBundle:ChangeCountry:index }
+
+Change_VisitedCountry:
+    path:  /myAccount/Change-Visited-Country
+    defaults: { _controller: PaTUserBundle:ChangeVisitedCountries:index }
