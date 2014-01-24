@@ -1,0 +1,50 @@
+{% trans_default_domain 'PaTUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    <div class="form-group register_fields">
+        {{ form_label(form.username, "Username : ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.username, {'attr': {'class': 'form-control register_fields'}}) }}
+        {{ form_errors(form.username, {'attr': {'class' : 'has-error register_fields'}}) }}
+        </div>
+      </div>
+
+      <div class="form-group register_fields">
+        {{ form_label(form.plainPassword.first, "Password : ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}  
+        <div class="col-sm-7">
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control register_fields'}}) }}
+        {{ form_errors(form.plainPassword.first, {'attr': {'class' : 'has-error register_fields'}}) }}
+      </div>
+      </div>
+
+      <div class="form-group register_fields">
+        {{ form_label(form.plainPassword.second, "Password again : ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control register_fields'}}) }}
+        {{ form_errors(form.plainPassword.second, {'attr': {'class' : 'has-error register_fields'}}) }}
+        </div>
+      </div> 
+
+
+      <div class="form-group register_fields">
+        {{ form_label(form.email, "Email : ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.email, {'attr': {'class': 'form-control register_fields'}}) }}
+        {{ form_errors(form.email, {'attr': {'class' : 'has-error register_fields'}}) }}
+        </div>
+      </div>
+
+      <div class="form-group register_fields">
+        {{ form_label(form.country, "Country : ", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(form.country, {'attr': {'class': 'form-control register_fields'}}) }}
+        {{ form_errors(form.country, {'attr': {'class' : 'has-error register_fields'}}) }}
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="col-sm-offset-8 col-sm-2">
+        <input type="submit" class="btn btn-primary" />
+      </div>
+    </div>
+
+</form>
