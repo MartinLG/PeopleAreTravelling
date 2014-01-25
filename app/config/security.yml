@@ -2,6 +2,7 @@ security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
         PaT\UserBundle\Entity\User: sha512
+        FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -25,6 +26,17 @@ security:
             pattern:   ^/
             anonymous: true
             provider:  main
+
+            oauth:
+                failure_path: /connect
+                login_path: /connect
+                check_path: /connect
+                provider: main
+                resource_owners:
+                    github:           "/login/check-github"
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.fosub_bridge
+
             form_login:
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check

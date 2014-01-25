@@ -48,6 +48,13 @@ class User extends BaseUser
      */
   private $visitedcountries;
 
+  /**
+     * @var string
+     *
+     * @ORM\Column(name="github_id", type="string", nullable=true)
+     */
+  private $githubID;
+
   public function setCountry($country)
   {
     $this->country = $country;
@@ -90,6 +97,33 @@ class User extends BaseUser
   public function getVisitedcountries()
   {
     return $this->visitedcountries;
+  }
+
+  public function setGithubID($githubID)
+  {
+    $this->githubID = $githubID;
+    return $this;
+  }
+
+  public function getGithubID()
+  {
+    return $this->githubID;
+  }
+
+  /**
+   * Get id
+   *
+   * @return integer 
+   */
+  public function getId()
+  {
+      return $this->id;
+  }
+
+  public function __construct()
+  {
+      parent::__construct();
+      // your own logic
   }
 
 }

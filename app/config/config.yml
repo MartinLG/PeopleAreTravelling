@@ -76,3 +76,30 @@ fos_user:
     registration:
         form:
             type: PaT_user_registration
+        confirmation:
+            enabled: false
+
+
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    connect:
+        confirmation: true
+        #account_connector: hwi_oauth.user.provider.fosub_bridge
+        #registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
+        #registration_form: fos_user.registration.form
+
+    resource_owners:
+        github:
+            type:                github
+            client_id:           67406de69fbb05e5da21
+            client_secret:       f0c26a34ae3b8c0debc964f44c7e209921321c9b
+            scope:               "user:email"
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubID
