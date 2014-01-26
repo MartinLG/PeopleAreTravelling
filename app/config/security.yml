@@ -35,6 +35,7 @@ security:
                 resource_owners:
                     github:           "/login/check-github"
                     facebook:         "/login/check-facebook"
+                    google:           "/login/check-google"
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.fosub_bridge
 

@@ -62,6 +62,13 @@ class User extends BaseUser
      */
   private $facebookID;
 
+  /**
+     * @var string
+     *
+     * @ORM\Column(name="google_id", type="string", nullable=true)
+     */
+  private $googleID;
+
   public function setCountry($country)
   {
     $this->country = $country;
@@ -126,6 +133,17 @@ class User extends BaseUser
   public function getFacebookID()
   {
     return $this->facebookID;
+  }
+
+  public function setGoogleID($googleID)
+  {
+    $this->googleID = $googleID;
+    return $this;
+  }
+
+  public function getGoogleID()
+  {
+    return $this->googleID;
   }
 
   /**

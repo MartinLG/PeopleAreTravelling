@@ -102,6 +102,12 @@ hwi_oauth:
             client_secret:       c37469964dc16a2f2d6b69235733393e
             scope:               "email"
 
+        google:
+            type:                google
+            client_id:           840912185438-ej1m9fmpfa01lgdrmtc2umph03bg28j8.apps.googleusercontent.com
+            client_secret:       KuiQG8Fm8CcrWLDlen65-yJ6
+            scope:               "email"
+
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
@@ -110,3 +116,4 @@ hwi_oauth:
         properties:
             github: githubID
             facebook: facebookID
+            google: googleID
