@@ -47,3 +47,6 @@ hwi_oauth_connect:
 
 hwi_github_login:
     pattern: /login/check-github
+
+hwi_facebook_login:
+    pattern: /login/check-facebook

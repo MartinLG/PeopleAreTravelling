@@ -55,6 +55,13 @@ class User extends BaseUser
      */
   private $githubID;
 
+  /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_id", type="string", nullable=true)
+     */
+  private $facebookID;
+
   public function setCountry($country)
   {
     $this->country = $country;
@@ -108,6 +115,17 @@ class User extends BaseUser
   public function getGithubID()
   {
     return $this->githubID;
+  }
+
+  public function setFacebookID($facebookID)
+  {
+    $this->facebookID = $facebookID;
+    return $this;
+  }
+
+  public function getFacebookID()
+  {
+    return $this->facebookID;
   }
 
   /**

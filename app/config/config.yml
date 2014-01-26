@@ -96,6 +96,12 @@ hwi_oauth:
             client_secret:       f0c26a34ae3b8c0debc964f44c7e209921321c9b
             scope:               "user:email"
 
+        facebook:
+            type:                facebook
+            client_id:           286366461488621
+            client_secret:       c37469964dc16a2f2d6b69235733393e
+            scope:               "email"
+
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
@@ -103,3 +109,4 @@ hwi_oauth:
         # mapping between resource owners (see below) and properties
         properties:
             github: githubID
+            facebook: facebookID
