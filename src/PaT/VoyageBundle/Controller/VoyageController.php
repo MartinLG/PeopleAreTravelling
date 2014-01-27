@@ -121,11 +121,4 @@ class VoyageController extends Controller
 
     return $this->render('PaTVoyageBundle:Voyage:delete.html.twig', array('voyage' => $travelclass, 'form' => $travelform->createView()));
 	}
-
-  public function duree()
-  {
-
-
-
-  }
 }

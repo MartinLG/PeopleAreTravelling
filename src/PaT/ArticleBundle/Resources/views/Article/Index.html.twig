@@ -1,0 +1,26 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+{% block title %}
+  Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_centrale %}
+
+	{# Deuxiéme colone #}
+	<h3>Affichage des articles</h3>
+
+	<ul>
+		
+		{% for type, flashMessages in app.session.flashbag.all() %}
+		    {% for flashMessage in flashMessages %}
+		        <div class=" alert alert-success "><li class="">
+		            {{ flashMessage }}
+		        </li></div>
+		    {% endfor %}
+		{% endfor %}
+		
+		
+	</ul>
+
+{% endblock %}
+
