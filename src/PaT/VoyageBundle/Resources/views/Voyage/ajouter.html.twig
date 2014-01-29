@@ -53,10 +53,10 @@
 
 
       <div class="form-group">
-          {{ form_label(travelform.description, "Présentation", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
-          {{ form_errors(travelform.description) }}
-          <div class="col-sm-7">
-          {{ form_widget(travelform.description, {'attr': {'class': 'form-control', 'rows' : '5'}}) }}
+        {{ form_label(travelform.description, "Présentation", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(travelform.description) }}
+        <div class="col-sm-7">
+        {{ form_widget(travelform.description, {'attr': {'class': 'form-control', 'rows' : '5'}}) }}
         </div>
       </div>
       {{ form_rest(travelform)}}

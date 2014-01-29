@@ -21,7 +21,7 @@
 		
 		{% for Trip in TripList %}
 		<li  class="table well well-lg">
-			<a class="lien" href="{{path('pa_t_article_liste', { 'id_voyage' : Trip.id})}}">
+			<a class="lien" href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}">
 				<table>
 					<tr><td colspan="3" >{{Trip.title}}</td></tr>
 					<tr><td width="33.3%"> Lieu : {{ Trip.place }}</td><td width="33.3%"> Durée : {{ Trip.duration }} jours</td><td width="33.4%"> Budget : {{ Trip.budget }}€</td></tr> 

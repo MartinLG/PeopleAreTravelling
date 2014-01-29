@@ -1,3 +1,9 @@
 pa_t_article_liste:
     pattern:  /test
     defaults: { _controller: PaTArticleBundle:Article:index }
+
+pa_t_article_add:
+    pattern:  /add/{travelid}
+    defaults: { _controller: PaTArticleBundle:Article:add}
+    requirements:
+       id: \d+

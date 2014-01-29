@@ -17,8 +17,10 @@
 				
 				<div class="well well-lg">
 					<ul class="">
+						{% block Column_left %}
 						<li class="col-sm-offset-0 col-md-12"><a href="{{ path('pa_t_voyage_homepage') }}">Retour à l'Index</a></li>
 						<li class="col-md-12"><a href="{{ path('pa_t_voyage_add') }}">Ajouter un voyage</a></li>
+						{% endblock %}
 					</ul>
 				</div>
 			</div>

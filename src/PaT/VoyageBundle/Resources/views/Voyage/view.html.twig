@@ -1,0 +1,21 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+
+
+{% block title %}
+  Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_left %}
+	{{ parent() }}
+	<li class="col-md-12"><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Ajouter un article</a></li> 
+{% endblock %}
+
+{% block Column_centrale %}
+		{% for caca in article %}
+
+			<li> {{ caca.title }} </li>
+
+		{% endfor %}
+{% endblock %}
+
