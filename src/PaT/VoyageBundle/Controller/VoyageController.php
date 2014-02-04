@@ -12,6 +12,9 @@ use PaT\VoyageBundle\Form\TravelEditType;
 class VoyageController extends Controller
 {
 
+  /******************************
+    Affiche la liste des voyages
+  ******************************/
 	public function indexAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
@@ -20,6 +23,17 @@ class VoyageController extends Controller
 		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $travel));
 	}
 
+  //Affiche la liste des articles associé
+  public function viewAction($travelid)
+  {
+    //Se connect et recupére les articles
+    $em = $this->getDoctrine()->getManager();
+    $article = $em->getRepository('PaTArticleBundle:Article')->findByTravel($travelid);
+    
+    return $this->render('PaTVoyageBundle:Voyage:view.html.twig', array('travelid' => $travelid, 'article' => $article));
+  }
+
+  //Ajoute un nouveau voyage 
 	public function addtravelAction()
 	{
     //creation de la classe et du formulaire
@@ -60,7 +74,7 @@ class VoyageController extends Controller
 	}
 
 
-
+  //Modifier un voyage
   public function changeAction(Travel $travelclass)
   {  
     // on cree le formulair en fonction de traveleditetype 
@@ -95,7 +109,7 @@ class VoyageController extends Controller
   }
 
 
-
+  //Supprimer un voyage
 	public function supprimerAction(Travel $travelclass)
 	{
 
@@ -121,11 +135,4 @@ class VoyageController extends Controller
 
     return $this->render('PaTVoyageBundle:Voyage:delete.html.twig', array('voyage' => $travelclass, 'form' => $travelform->createView()));
 	}
-
-  public function duree()
-  {
-
-
-
-  }
 }

@@ -1,0 +1,40 @@
+{% extends "PaTArticleBundle::layout.html.twig" %}
+
+{% block title %}
+  Ajouter un Voyage - {{ parent() }}
+{% endblock %}
+
+{% block Column_centrale %}
+  <h3>Nouveau Voyage</h3>
+
+  <div class="well" >
+    <form method="post" {{ form_enctype(articleform) }} role="form" class="form-horizontal">
+      
+      <div class="form-group">
+        {{ form_label(articleform.title, "Titre de l'article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        <div class="col-sm-7">
+        {{ form_widget(articleform.title, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(articleform.title) }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        {{ form_label(articleform.poste, "Votre article", {'label_attr': {'class': 'col-sm-offset-0 col-sm-3 control-label'}}) }}
+        {{ form_errors(articleform.poste) }}
+        <div class="col-sm-7">
+        {{ form_widget(articleform.poste, {'attr': {'class': 'form-control', 'rows' : '50'}}) }}
+        </div>
+      </div>
+
+
+      {{ form_rest(articleform)}}
+
+      {# form_widget(articleform) #}
+      <div class="form-group">
+        <div class="col-sm-offset-8 col-sm-2">
+          <input type="submit" class="btn btn-primary" />
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

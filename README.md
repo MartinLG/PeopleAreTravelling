@@ -26,4 +26,4 @@ Notre application PeopleAreTravelling devra proposer plusieurs fonctionnalitées
 
 [1]:  http://symfony.com/
 [2]:  https://github.com/FriendsOfSymfony/FOSUserBundle
-[3]:  https://github.com/hwi/HWIOAuthBundle
+[3]:  https://github.com/hwi/HWIOAuthBundle-

@@ -20,9 +20,14 @@ class AppKernel extends Kernel
             new PaT\MaquetteBundle\PaTMaquetteBundle(),     //Bundle Maquette, pour visualiser le site
             new PaT\UserBundle\PaTUserBundle(),             //Bundle User pour gérer les connections utilisateurs
             new FOS\UserBundle\FOSUserBundle(),             //Bundle FOSUser pour avoir une base sur notre Bundle User
+<<<<<<< HEAD
             new PaT\MapBundle\PaTMapBundle(),               //Bundle Map pour afficher l'API Google Maps et notre layout
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+=======
+            new PaT\MapBundle\PaTMapBundle(),               //Bundle Map pour afficher l'API Google Maps et notre layout,
+            new PaT\ArticleBundle\PaTArticleBundle(),
+>>>>>>> article
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

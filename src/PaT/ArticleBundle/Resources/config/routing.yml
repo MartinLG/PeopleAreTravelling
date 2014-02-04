@@ -1,0 +1,24 @@
+pa_t_article_view:
+    pattern:  /view/{travelid}/{id}
+    defaults: { _controller: PaTArticleBundle:Article:view }
+    requirements:
+        id: \d+
+
+pa_t_article_add:
+    pattern:  /add/{travelid}
+    defaults: { _controller: PaTArticleBundle:Article:add}
+    requirements:
+       travelid: \d+
+
+pa_t_article_change:
+    pattern: /change/{travelid}/{id}
+    defaults: { _controller: PaTArticleBundle:Article:change}
+    requirements:
+        id: \d+
+
+pa_t_article_delete:
+    pattern:  /delete/{travelid}/{id}
+    defaults: { _controller: PaTArticleBundle:Article:delete}
+    requirements:
+        id: \d+
+        travelid: \d+

@@ -17,3 +17,9 @@ pa_t_voyage_change:
     defaults: { _controller: PaTVoyageBundle:Voyage:change }
     requirements:
        id: \d+
+
+pa_t_voyage_view:
+    pattern: /view/{travelid}
+    defaults: { _controller: PaTVoyageBundle:Voyage:view }
+    requirements:
+       travelid: \d+
