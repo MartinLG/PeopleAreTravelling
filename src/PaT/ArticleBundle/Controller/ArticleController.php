@@ -13,13 +13,13 @@ use PaT\ArticleBundle\Form\ArticleEditType;
 class ArticleController extends Controller
 {
 
-	public function indexAction ($travelid)
+	public function viewAction ($travelid, $id)
 	{
     $em = $this->getDoctrine()->getManager();
   
-    $article = $em->getRepository('PaTArticleBundle:Article')->findByTravel_Id($travelid);
+    $article = $em->getRepository('PaTArticleBundle:Article')->findById($id);
 
-		return $this->render('PaTArticleBundle:Article:index.html.twig', array('article' => $article));
+		return $this->render('PaTArticleBundle:Article:index.html.twig', array('article' => $article, 'travelid' => $travelid));
 	}
 
 
@@ -69,7 +69,7 @@ class ArticleController extends Controller
 	}
 
 
-  public function changeAction(Article $articleclass)
+  public function changeAction(Article $articleclass, $travelid)
   {
 
     $articleform = $this->createForm(new ArticleEditType, $articleclass);
@@ -88,7 +88,7 @@ class ArticleController extends Controller
 
           $this->get('session')->getFlashBag()->add('info', 'L\'article "' . $articleclass->getTitle() .'" à bien été modifié.');
 
-          return $this->redirect($this->generateUrl('pa_t_voyage_view', array('travelid' => $articleclass->getID())));
+          return $this->redirect($this->generateUrl('pa_t_article_view', array('travelid' => $travelid, 'id' => $articleclass->getID())));
         }
       }
 

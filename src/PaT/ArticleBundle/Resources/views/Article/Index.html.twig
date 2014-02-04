@@ -4,28 +4,35 @@
   Voyage - {{ parent() }}
 {% endblock %}
 
-{% block Column_centrale %}
-
-	{# Deuxiéme colone #}
-	<h3>Affichage des articles</h3>
-
-	<ul class="well">
-		
-		{% for type, flashMessages in app.session.flashbag.all() %}
-		    {% for flashMessage in flashMessages %}
-		        <div class=" alert alert-success "><li class="">
-		            {{ flashMessage }}
-		        </li></div>
-		    {% endfor %}
-		{% endfor %}
-<p> test </p>
-		{% for caca in article %}
-
-			<li> {{ caca.title }} </li>
-
-		{% endfor %}
-		
-	</ul>
-
+{# Colomne de gauche #}
+{% block Column_left %}
+	{{ parent() }}
+	<li class="col-md-12"><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Ajouter un article</a></li> 
 {% endblock %}
 
+{# Colomne au centre #}
+{% block Column_centrale %}
+<h3>Liste des articles</h3>		
+	{% for article in article %}
+		<div class="well">
+			<div class="col-md-12">
+				<br>
+				{{ article.title }}
+				<br>
+				<br>
+				{{ article.poste }}
+				<br>
+				<br>
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer </button></a></div>
+				<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Modifier </button></a></div>
+
+			</div>
+		</div>
+		
+	{% endfor %}
+
+
+{% endblock %}

@@ -1,6 +1,8 @@
-pa_t_article_liste:
-    pattern:  /test
-    defaults: { _controller: PaTArticleBundle:Article:index }
+pa_t_article_view:
+    pattern:  /view/{travelid}/{id}
+    defaults: { _controller: PaTArticleBundle:Article:view }
+    requirements:
+        id: \d+
 
 pa_t_article_add:
     pattern:  /add/{travelid}
@@ -9,7 +11,7 @@ pa_t_article_add:
        travelid: \d+
 
 pa_t_article_change:
-    pattern: /change/{id}
+    pattern: /change/{travelid}/{id}
     defaults: { _controller: PaTArticleBundle:Article:change}
     requirements:
         id: \d+
