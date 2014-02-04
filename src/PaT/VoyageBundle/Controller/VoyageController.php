@@ -11,6 +11,7 @@ use PaT\VoyageBundle\Form\TravelEditType;
 
 class VoyageController extends Controller
 {
+
   /******************************
     Affiche la liste des voyages
   ******************************/

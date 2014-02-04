@@ -47,7 +47,6 @@ class Article
     private $poste;
 
     /**
-     *
      * @ORM\ManyToOne(targetEntity="PaT\VoyageBundle\Entity\Travel")
      * @ORM\JoinColumn(nullable=false, referencedColumnName="id", onDelete="CASCADE")
      * 

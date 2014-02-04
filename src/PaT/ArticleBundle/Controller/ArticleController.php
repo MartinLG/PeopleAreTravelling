@@ -31,7 +31,7 @@ class ArticleController extends Controller
 
     if($travel == null)
     {
-      throw $this->createNotFoundException('Le voyage n°'. $travelid .' n`\'est pas présent dans la base de données'); 
+      throw $this->createNotFoundException('Le voyage n°'. $travelid .' n\'est pas présent dans la base de données'); 
     }
 
 		$articleclass = new Article;
@@ -59,11 +59,41 @@ class ArticleController extends Controller
 
         //retour sur la page index
         $this->get('session')->getFlashBag()->add('info', 'Votre nouveau voyage à bien été ajouté.'); 
-        return $this->redirect($this->generateUrl('pa_t_voyage_homepage'));
+        return $this->redirect($this->generateUrl('pa_t_voyage_view', array('travelid' => $travelid)));
       }
     }
 
     //retourne le formulaire
     return $this->render('PaTArticleBundle:Article:add.html.twig', array('articleform' => $articleform->createView(), 'travelid' => $travelid));
 	}
+
+
+  public function deleteAction(Article $articleclass, $travelid)
+  {
+    $articleform = $this->createFormBuilder()->getForm(); 
+    $request = $this->getRequest();
+
+    if($request->getMethod() == 'POST')
+    {
+
+      $articleform->bind($request);
+
+      if($articleform->isValid())
+      {
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($articleclass);
+        $em->flush();
+
+
+        return $this->redirect($this->generateUrl('pa_t_voyage_view', array('travelid' => $travelid)));
+      }
+
+      
+    }
+
+    return $this->render('PaTArticleBundle:Article:delete.html.twig', array('article' => $articleclass, 'travelid' => $travelid,'form' => $articleform->createView()));
+
+  }
+
 }
