@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PaT\VoyageBundle\Entity\Travel;
 use PaT\ArticleBundle\Entity\Article;
 use PaT\ArticleBundle\Form\ArticleType;
+use PaT\ArticleBundle\Form\ArticleEditType;
 
 
 
@@ -67,6 +68,32 @@ class ArticleController extends Controller
     return $this->render('PaTArticleBundle:Article:add.html.twig', array('articleform' => $articleform->createView(), 'travelid' => $travelid));
 	}
 
+
+  public function changeAction(Article $articleclass)
+  {
+
+    $articleform = $this->createForm(new ArticleEditType, $articleclass);
+    $request = $this->get('request');
+
+    if($request->getMethod() == 'POST')
+    {
+       $articleform->bind($request);
+
+       if($articleform->isValid())
+       {
+
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($articleclass);
+          $em->flush();
+
+          $this->get('session')->getFlashBag()->add('info', 'L\'article "' . $articleclass->getTitle() .'" à bien été modifié.');
+
+          return $this->redirect($this->generateUrl('pa_t_voyage_view', array('travelid' => $articleclass->getID())));
+        }
+      }
+
+    return $this->render('PaTArticleBundle:Article:add.html.twig', array('articleform' => $articleform->createView(), 'article' => $articleclass));
+  }
 
   public function deleteAction(Article $articleclass, $travelid)
   {

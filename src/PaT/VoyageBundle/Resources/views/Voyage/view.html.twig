@@ -27,7 +27,7 @@
 			<div class="col-md-8"><a href="#" >{{ article.title }}</a></div>
 
 			<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></a></div>
-			<div class="col-md-2"><a href="{{ path('pa_t_voyage_change', { 'id' : article.id })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></div>
+			<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></div>
 		</li>
 	{% endfor %}
 </ul>

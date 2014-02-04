@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ArticleType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
