@@ -24,6 +24,14 @@ Notre application PeopleAreTravelling devra proposer plusieurs fonctionnalitées
   - Classement par popularité
   - Tri sélectif
 
+2) Avancé de l'application
+----------------------------------
+
+  - Mise en place du bundle Article         v1.0 (Beta)
+  - Mise en place du Bundle Voyage          v1.0 (beta)
+  - Authentification  FOSUserBundlle        v1.0 (final)
+
+
 [1]:  http://symfony.com/
 [2]:  https://github.com/FriendsOfSymfony/FOSUserBundle
 [3]:  https://github.com/hwi/HWIOAuthBundle-
