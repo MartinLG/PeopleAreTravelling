@@ -13,13 +13,17 @@
 			<h1> Page session</h1>
 			{# Premiére colone #}
 			<div class="col-md-2">
-				<h3>Utilisateurs</h3>
-				
+					
+				<h3>Menu</h3>
+
 				<div class="well well-lg">
-					<ul class="">
+					<ul class="list-menu">
 						{% block Column_left %}
-						<li class="col-sm-offset-0 col-md-12"><a href="{{ path('pa_t_voyage_homepage') }}">Retour à l'Index</a></li>
-						<li class="col-md-12"><a href="{{ path('pa_t_voyage_add') }}">Ajouter un voyage</a></li>
+
+							<li><a href="{{ path('pa_t_voyage_homepage') }}">My Travels</a></li>
+							<hr>
+							<li><a href="{{ path('pa_t_voyage_add') }}">Add travel</a></li>
+
 						{% endblock %}
 					</ul>
 				</div>
@@ -35,6 +39,7 @@
 			{# Troisiéme colone #}
 			<div class="col-md-2">
 				<h3>Colone en + ;)</h3>
+				
 			</div>
 		{% endblock %}
 

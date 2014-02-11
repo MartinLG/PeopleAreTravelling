@@ -7,29 +7,46 @@
 {# Colomne de gauche #}
 {% block Column_left %}
 	{{ parent() }}
-	<li class="col-md-12"><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Ajouter un article</a></li> 
+	<hr>
+	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Add article</a></li> 
 {% endblock %}
 
 {# Colomne au centre #}
 {% block Column_centrale %}
-<h3>Liste des articles</h3>
-<ul class="well">
-	{% for type, flashMessages in app.session.flashbag.all() %}
-		{% for flashMessage in flashMessages %}
-			<div class=" alert alert-success ">
-				<li>{{ flashMessage }}</li>
-			</div>
-		{% endfor %}
-	{% endfor %}
-		
-	{% for article in article %}
-		<li>
-			<div class="col-md-8"><a href="{{ path('pa_t_article_view', { 'travelid' : travelid, 'id' : article.id })}}" >{{ article.title }}</a></div>
 
-			<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></a></div>
-			<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></div>
-		</li>
-	{% endfor %}
-</ul>
+	<h3>Liste des articles</h3>
+
+
+	<ul>
+		{% for type, flashMessages in app.session.flashbag.all() %}
+			{% for flashMessage in flashMessages %}
+				<li><div class="alert alert-success">{{ flashMessage }}</div></li>
+			{% endfor %}
+		{% endfor %}
+
+		<div class="well well-lg">
+			{% for article in article %}
+				<li>
+					<div class="col-md-8">
+						<a href="{{ path('pa_t_article_view', { 'travelid' : travelid, 'id' : article.id })}}" >{{ article.title }}</a>
+					</div>
+
+					<div class="col-md-2">
+						<a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}">
+							<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash" ></span> Supprimer</button>
+						</a>
+					</div>
+
+					<div class="col-md-2">
+						<a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}">
+							<button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button>
+						</a>
+					</div> 
+				</li>
+			{% endfor %}
+		</div>
+	</ul>
+	
+
 {% endblock %}
 
