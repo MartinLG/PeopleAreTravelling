@@ -18,7 +18,8 @@
           
           <div class="well well-lg">
             <ul class="list-menu">
-              <li><a href="{{ path('pa_t_voyage_homepage') }}">My travels</a></li>
+              {% block elementmenu %}
+              {% endblock %}
               <hr>
               <li><a href="{{ path('Change_Status') }}">Change status</a></li>
               <hr>

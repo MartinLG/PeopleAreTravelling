@@ -4,6 +4,10 @@
   Account - {{ parent() }}
 {% endblock %}
 
+{% block elementmenu %}
+    <li><a href="{{ path('pa_t_voyage_traveluser', { 'userid' : app.user.id }) }}">My travels</a></li>
+{% endblock %}
+
   {% block Column_central %}
     <h3>Personnal Informations</h3>
 

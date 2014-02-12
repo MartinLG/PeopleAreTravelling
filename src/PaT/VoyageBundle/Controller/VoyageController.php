@@ -2,10 +2,12 @@
 
 namespace PaT\VoyageBundle\Controller;
 
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PaT\VoyageBundle\Entity\Travel;
 use PaT\VoyageBundle\Form\TravelType;
 use PaT\VoyageBundle\Form\TravelEditType;
+use PaT\UserBundle\Entity\User;
 
 
 
@@ -14,7 +16,7 @@ class VoyageController extends Controller
 
   /******************************
     Affiche la liste des voyages
-  ******************************/
+   ******************************/
 	public function indexAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
@@ -22,6 +24,27 @@ class VoyageController extends Controller
 
 		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $travel));
 	}
+
+
+  /******************************************************
+    Affichage des voyages d'un utilisateur en particulié
+   ******************************************************/
+  public function traveluserAction ($userid)
+  {
+    $user = $this->container->get('security.context')->getToken()->getUser()->getId();
+
+    if($user == $userid)
+    {
+      $Repository = $this->getDoctrine()->getManager();
+      $traveluser = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array('iduser' => $userid), array('publicationdate' =>'desc'), 10, 0);
+
+      return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $traveluser));
+    }
+    else
+    {
+      throw new AccessDeniedException('Vous ne disposé pas des droits nécéssaire pour accéder à cette page');
+    }
+  }
 
   //Affiche la liste des articles associé
   public function viewAction($travelid)
@@ -32,6 +55,8 @@ class VoyageController extends Controller
     
     return $this->render('PaTVoyageBundle:Voyage:view.html.twig', array('travelid' => $travelid, 'article' => $article));
   }
+
+
 
   //Ajoute un nouveau voyage 
 	public function addtravelAction()
@@ -58,6 +83,11 @@ class VoyageController extends Controller
         $duration = $duration->days;
         $travelclass->setDuration($duration);
 
+        //Remplissage du champs iduser
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        //$user = $this->getId();
+        $travelclass->setIduser($user->getId());
+
         //envois des donnees
         $em = $this->getDoctrine()->getManager();
         $em->persist($travelclass);
@@ -65,7 +95,7 @@ class VoyageController extends Controller
 
         //retour sur la page index
         $this->get('session')->getFlashBag()->add('info', 'Votre nouveau voyage à bien été ajouté.'); 
-        return $this->redirect($this->generateUrl('pa_t_voyage_homepage'));
+        return $this->redirect($this->generateUrl('pa_t_voyage_traveluser', array('userid' => $user->getId() )));
       }
     }
 

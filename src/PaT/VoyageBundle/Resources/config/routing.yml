@@ -23,3 +23,9 @@ pa_t_voyage_view:
     defaults: { _controller: PaTVoyageBundle:Voyage:view }
     requirements:
        travelid: \d+
+
+pa_t_voyage_traveluser:
+    pattern: /viewuser/{userid}
+    defaults: { _controller: PaTVoyageBundle:Voyage:traveluser }
+    requirements:
+        userid: \d+
