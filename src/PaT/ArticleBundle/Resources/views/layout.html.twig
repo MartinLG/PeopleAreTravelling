@@ -20,7 +20,7 @@
 					<ul class="list-menu">
 						{% block Column_left %}
 
-							<li><a href="{{ path('pa_t_voyage_homepage') }}">My Travels</a></li>
+							<li><a href="{{ path('pa_t_voyage_traveluser', { 'userid' : app.user.id } ) }}">My Travels</a></li>
 							<hr>
 							<li><a href="{{ path('pa_t_voyage_add') }}">Add travel</a></li>
 
