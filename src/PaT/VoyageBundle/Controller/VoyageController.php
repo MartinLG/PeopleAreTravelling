@@ -17,12 +17,12 @@ class VoyageController extends Controller
   /******************************
     Affiche la liste des voyages
    ******************************/
-	public function indexAction()
+	public function newstravelAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
-		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array('iduser' => 1), array('publicationdate' => 'desc'), 10, 0);
+		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 100, 0);
 
-		return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $travel));
+		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel));
 	}
 
 

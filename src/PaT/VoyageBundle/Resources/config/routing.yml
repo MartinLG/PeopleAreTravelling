@@ -1,6 +1,6 @@
-pa_t_voyage_homepage:
-    pattern:  /index
-    defaults: { _controller: PaTVoyageBundle:Voyage:index }
+pa_t_voyage_news:
+    pattern:  /news
+    defaults: { _controller: PaTVoyageBundle:Voyage:newstravel }
 
 pa_t_voyage_add:
     pattern: /add
