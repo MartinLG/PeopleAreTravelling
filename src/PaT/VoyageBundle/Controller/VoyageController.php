@@ -14,16 +14,17 @@ use PaT\UserBundle\Entity\User;
 class VoyageController extends Controller
 {
 
-  /******************************
-    Affiche la liste des voyages
-   ******************************/
+  /**************************************************************
+    Affiche la liste des 20 dernier voyages dans la section news
+   **************************************************************/
 	public function newstravelAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
-		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 100, 0);
+		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 20, 0);
 
 		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel));
 	}
+
 
 
   /******************************************************
@@ -46,19 +47,30 @@ class VoyageController extends Controller
     }
   }
 
-  //Affiche la liste des articles associé
+
+  
+  /*******************************************
+    Affiche des articles associé a un voyage
+  ********************************************/
   public function viewAction($travelid)
   {
     //Se connect et recupére les articles
     $em = $this->getDoctrine()->getManager();
     $article = $em->getRepository('PaTArticleBundle:Article')->findByTravel($travelid);
+
+    if ($article != false)
+    {
+      
+    }
     
     return $this->render('PaTVoyageBundle:Voyage:view.html.twig', array('travelid' => $travelid, 'article' => $article));
   }
 
 
 
-  //Ajoute un nouveau voyage 
+  /****************************
+    Ajouter un nouveau voyage 
+  *****************************/
 	public function addtravelAction()
 	{
     //creation de la classe et du formulaire
@@ -104,7 +116,10 @@ class VoyageController extends Controller
 	}
 
 
-  //Modifier un voyage
+
+  /*********************
+    Modifier un voyage
+  **********************/
   public function changeAction(Travel $travelclass)
   {  
     // on cree le formulair en fonction de traveleditetype 
@@ -139,7 +154,10 @@ class VoyageController extends Controller
   }
 
 
-  //Supprimer un voyage
+
+  /***********************
+    Supprimer un voyage
+   ***********************/
 	public function supprimerAction(Travel $travelclass)
 	{
 
