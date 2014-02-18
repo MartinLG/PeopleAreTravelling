@@ -9,21 +9,28 @@ use PaT\ArticleBundle\Form\ArticleType;
 use PaT\ArticleBundle\Form\ArticleEditType;
 
 
-
 class ArticleController extends Controller
 {
 
+  /* Affiche l'article seul */
 	public function viewAction ($travelid, $id)
 	{
     $em = $this->getDoctrine()->getManager();
   
     $article = $em->getRepository('PaTArticleBundle:Article')->findById($id);
 
-		return $this->render('PaTArticleBundle:Article:index.html.twig', array('article' => $article, 'travelid' => $travelid));
+		return $this->render('PaTArticleBundle:Article:viewarticle.html.twig', array('article' => $article, 'travelid' => $travelid));
 	}
 
+ /* public function NewsviewAction($travelid)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $article = $em->getRepository('PaTArticleBundle:Article')->findByTravel($travelid);
+    return $this->redirect($this->generateUrl('',array()));
+  }*/
 
 
+  /* Ajouter un article */
 	public function addAction ($travelid)
 	{
     $em = $this->getDoctrine()->getManager();
@@ -68,7 +75,7 @@ class ArticleController extends Controller
     return $this->render('PaTArticleBundle:Article:add.html.twig', array('articleform' => $articleform->createView(), 'travelid' => $travelid));
 	}
 
-
+  /* Modifier un article */
   public function changeAction(Article $articleclass, $travelid)
   {
 
@@ -95,6 +102,7 @@ class ArticleController extends Controller
     return $this->render('PaTArticleBundle:Article:add.html.twig', array('articleform' => $articleform->createView(), 'article' => $articleclass));
   }
 
+  /*Supprimer un article */
   public function deleteAction(Article $articleclass, $travelid)
   {
     $articleform = $this->createFormBuilder()->getForm(); 

@@ -10,16 +10,7 @@
 	{# Deuxiéme colone #}
 	<h3>Les derniers voyages</h3>
 
-	<ul>
-		
-		{% for type, flashMessages in app.session.flashbag.all() %}
-		    {% for flashMessage in flashMessages %}
-		        <div class=" alert alert-success "><li class="">
-		            {{ flashMessage }}
-		        </li></div>
-		    {% endfor %}
-		{% endfor %}
-		
+	<ul>		
 		{% for Trip in TripList %}
 		<li  class="table well well-lg">
 			<a class="lien" href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}">

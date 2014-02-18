@@ -1,0 +1,40 @@
+{% extends "PaTVoyageBundle::layout.html.twig" %}
+
+{% block title %}
+  Voyage - {{ parent() }}
+{% endblock %}
+
+{# Colomne de gauche #}
+{% block Column_left %}
+	{{ parent() }}
+	<hr>
+	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Add article</a></li> 
+{% endblock %}
+
+
+{# Colomne au centre #}
+{% block Column_centrale %}
+<h3>Liste des articles</h3>		
+	{% for article in article %}
+		<div class="well">
+			<div class="col-md-12">
+				<br>
+				{{ article.title }}
+				<br>
+				<br>
+				{{ article.poste }}
+				<br>
+				<br>
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer </button></a></div>
+				<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Modifier </button></a></div>
+
+			</div>
+		</div>
+		
+	{% endfor %}
+
+
+{% endblock %}

@@ -22,3 +22,9 @@ pa_t_article_delete:
     requirements:
         id: \d+
         travelid: \d+
+
+#pa_t_article_newsview:
+#    pattern:  /view/{travelid}
+#    defaults: { _controller: PaTArticleBundle:Article:view }
+#    requirements:
+#        id: \d+

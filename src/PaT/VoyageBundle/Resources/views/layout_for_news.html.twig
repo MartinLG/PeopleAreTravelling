@@ -10,26 +10,37 @@
 
 		{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
 		{% block PaT_body %}
-			<h1>News</h1>
+			
+			<h1> Page session</h1>
 			
 			{# Premiére colone #}
 			<div class="col-md-2">
 					
-				<h3>Colone Menu</h3>
+				<h3>Menu</h3>
 
 				<div class="well well-lg">
 					<ul class="list-menu">
+						{% block Column_left %}
+
+						{% endblock %}
 					</ul>
 				</div>
 			</div>
 
 			{# Colone centrale #}
-			<div class="col-md-10">
+			<div class="col-md-8">
 				{% block Column_centrale %}
 
 				{% endblock %}
 			</div>
 
+			{# Colone e droite #}
+			<div class="col-md-2">
+				<h3>Colone en + ;)</h3>
+				<div class="well well-lg">
+
+				</div>
+			</div>
 		{% endblock %}
 
 	</div>

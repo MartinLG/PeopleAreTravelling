@@ -1,0 +1,24 @@
+{% extends "PaTVoyageBundle::layout_for_news.html.twig" %}
+
+{% block title %}
+  Voyage - {{ parent() }}
+{% endblock %}
+
+{# Colomne de gauche #}
+{% block Column_left %}
+	{{ parent() }}
+{% endblock %}
+
+{# Colomne au centre #}
+{% block Column_centrale %}
+
+{% for article in article %}
+<h3>{{ article.title }}</h3>
+
+<ul class="well">
+	<li>
+		<div class="col-md-8"><a href="{{ path('', { 'id' : article.id })}}" >{{ article.title }}</a></div>
+	</li>
+</ul>
+{% endfor %}
+{% endblock %
