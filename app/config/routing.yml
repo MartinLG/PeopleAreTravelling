@@ -37,23 +37,21 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
-hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
-
-hwi_oauth_login:
+#HWIOAuthBundle routes
+hwi_oauth_security:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /connect
+    prefix: /login
 
 hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
-    prefix:   /connect
+    prefix: /login
 
-hwi_github_login:
-    pattern: /login/check-github
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
 
-hwi_facebook_login:
+facebook_login:
     pattern: /login/check-facebook
 
-hwi_google_login:
+google_login:
     pattern: /login/check-google

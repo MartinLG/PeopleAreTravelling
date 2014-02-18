@@ -48,26 +48,17 @@ class User extends BaseUser
      */
   private $visitedcountries;
 
-  /**
-     * @var string
-     *
-     * @ORM\Column(name="github_id", type="string", nullable=true)
-     */
-  private $githubID;
-
-  /**
-     * @var string
-     *
-     * @ORM\Column(name="facebook_id", type="string", nullable=true)
-     */
-  private $facebookID;
-
-  /**
-     * @var string
-     *
-     * @ORM\Column(name="google_id", type="string", nullable=true)
-     */
-  private $googleID;
+  /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
+    protected $facebook_id;
+ 
+    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
+    protected $facebook_access_token;
+ 
+    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
+    protected $google_id;
+ 
+    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
+    protected $google_access_token;
 
   public function setCountry($country)
   {
@@ -113,37 +104,48 @@ class User extends BaseUser
     return $this->visitedcountries;
   }
 
-  public function setGithubID($githubID)
+  public function setFacebookAccessToken($facebook_access_token)
   {
-    $this->githubID = $githubID;
+    $this->facebook_access_token = $facebook_access_token;
     return $this;
   }
 
-  public function getGithubID()
+  public function getFacebookAccessToken()
   {
-    return $this->githubID;
+    return $this->facebook_access_token;
   }
 
-  public function setFacebookID($facebookID)
+  public function setGoogleAccessToken($google_access_token)
   {
-    $this->facebookID = $facebookID;
+    $this->google_access_token = $google_access_token;
     return $this;
   }
 
-  public function getFacebookID()
+  public function getGoogleAccessToken()
   {
-    return $this->facebookID;
+    return $this->google_access_token;
   }
 
-  public function setGoogleID($googleID)
+  public function setFacebookId($facebook_id)
   {
-    $this->googleID = $googleID;
+    $this->facebook_id = $facebook_id;
     return $this;
   }
 
-  public function getGoogleID()
+  public function getFacebookId()
   {
-    return $this->googleID;
+    return $this->facebook_id;
+  }
+
+  public function setGoogleId($google_id)
+  {
+    $this->google_id = $google_id;
+    return $this;
+  }
+
+  public function getGoogleId()
+  {
+    return $this->google_id;
   }
 
   /**

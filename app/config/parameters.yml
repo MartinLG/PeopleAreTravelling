@@ -12,9 +12,9 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    github_client_id: 67406de69fbb05e5da21
-    github_client_secret: f0c26a34ae3b8c0debc964f44c7e209921321c9b
-    facebook_client_id: 286366461488621
-    facebook_client_secret: c37469964dc16a2f2d6b69235733393e
-    google_client_id: 840912185438-ej1m9fmpfa01lgdrmtc2umph03bg28j8.apps.googleusercontent.com
-    google_client_secret: KuiQG8Fm8CcrWLDlen65-yJ6
+    github_app_id: 67406de69fbb05e5da21
+    github_app_secret: f0c26a34ae3b8c0debc964f44c7e209921321c9b
+    facebook_app_id: 286366461488621
+    facebook_app_secret: c37469964dc16a2f2d6b69235733393e
+    google_app_id: 840912185438-ej1m9fmpfa01lgdrmtc2umph03bg28j8.apps.googleusercontent.com
+    google_app_secret: KuiQG8Fm8CcrWLDlen65-yJ6
