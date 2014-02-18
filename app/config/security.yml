@@ -13,7 +13,7 @@ security:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         main:
-            id: fos_user.user_provider.username_email
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
@@ -38,10 +38,11 @@ security:
                     service: my_user_provider
 
             form_login:
-                provider: main
-                csrf_provider: form.csrf_provider
-                login_path: /login
-                check_path: /login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+                always_use_default_target_path : true
+                default_target_path: /
+                use_referer : true
 
             logout: true
 
