@@ -47,9 +47,18 @@ class FOSUBUserProvider extends BaseClass
         $email = $response->getEmail();
         $nickname = $response->getNickname();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
+        $userSameEmail = $this->userManager->findUserBy(array('email' => $email));
 
-        //when the user is registrating
-        if (null === $user) {
+        if (null != $userSameEmail){
+            $service = $response->getResourceOwner()->getName();
+            $setter = 'set'.ucfirst($service);
+            $setter_id = $setter.'Id';
+            $setter_token = $setter.'AccessToken';
+            $userSameEmail->$setter_id($username);
+            $userSameEmail->$setter_token($response->getAccessToken());
+            $this->userManager->updateUser($userSameEmail);
+            return $userSameEmail;
+        }elseif (null === $user) {
             $service = $response->getResourceOwner()->getName();
             $setter = 'set'.ucfirst($service);
             $setter_id = $setter.'Id';
@@ -105,4 +114,5 @@ class FOSUBUserProvider extends BaseClass
         //$string = strtolower ($string);
         return $string;
     }
+
 }
