@@ -43,7 +43,7 @@ class VoyageController extends Controller
     }
     else
     {
-      throw new AccessDeniedException('Vous ne disposé pas des droits nécéssaire pour accéder à cette page');
+      throw new AccessDeniedException('Vous ne disposez pas des droits nécéssaire pour accéder à cette page');
     }
   }
 
@@ -58,9 +58,9 @@ class VoyageController extends Controller
     $em = $this->getDoctrine()->getManager();
     $article = $em->getRepository('PaTArticleBundle:Article')->findByTravel($travelid);
 
-    if ($article != false)
+    if ($article == false)
     {
-      
+      $this->get('session')->getFlashBag()->add('warning', 'Aucun articles associé à ce voyage pour le moment'); 
     }
     
     return $this->render('PaTVoyageBundle:Voyage:view.html.twig', array('travelid' => $travelid, 'article' => $article));
@@ -88,13 +88,8 @@ class VoyageController extends Controller
       if($travelform->isValid())
       {
 
-        $this->Duration($travelclass->getStartdate(), $travelclass->getEnddate());
-        //Remplissage automatique du champ duration
-        /*$datetime1 = $travelclass->getStartdate();
-        $datetime2 = $travelclass->getEnddate();
-        $duration = $datetime1->diff($datetime2);
-        $duration = $duration->days;
-        $travelclass->setDuration($duration);*/
+        //Remplissage du champs Duration
+        $travelclass->setDuration($this->Duration($travelclass->getStartdate(), $travelclass->getEnddate()));
 
         //Remplissage du champs iduser
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -134,12 +129,11 @@ class VoyageController extends Controller
        if($travelform->isValid())
        {
 
+          //Remplissage du champs iduser
+          $user = $this->container->get('security.context')->getToken()->getUser();
+
           //Remplissage automatique du champ duration
-          $datetime1 = $travelclass->getStartdate();
-          $datetime2 = $travelclass->getEnddate();
-          $duration = $datetime1->diff($datetime2);
-          $duration = $duration->days;
-          $travelclass->setDuration($duration);
+          $travelclass->setDuration($this->Duration($travelclass->getStartdate(), $travelclass->getEnddate()));
 
           $em = $this->getDoctrine()->getManager();
           $em->persist($travelclass);
@@ -147,7 +141,7 @@ class VoyageController extends Controller
 
           $this->get('session')->getFlashBag()->add('info', 'Le voyage "'. $travelclass->getTitle() .'" à bien été modifié.');
 
-          return $this->redirect($this->generateUrl('pa_t_voyage_homepage', array('id' => $travelclass->getID())));
+          return $this->redirect($this->generateUrl('pa_t_voyage_traveluser', array('userid' => $user->getId() )));
         }
       }
 
@@ -185,11 +179,15 @@ class VoyageController extends Controller
     return $this->render('PaTVoyageBundle:Voyage:delete.html.twig', array('voyage' => $travelclass, 'form' => $travelform->createView()));
 	}
 
-  //Fonction pour définir le nombre de jours 
-  public function Duration( $datetime1,  $datetime2)
+
+
+  /*****************************************************************
+  * Retourne le nombre de jours en fonction de la date selectionné
+  ******************************************************************/
+  private function Duration( $datetime1,  $datetime2)
   {
-          $duration = $datetime1->diff($datetime2);
-          $duration = $duration->days;
-          $travelclass->setDuration($duration);
+    $duration = $datetime1->diff($datetime2);
+    return $duration = $duration->days;    
   }
+
 }
