@@ -15,12 +15,12 @@ class VoyageController extends Controller
 {
 
   /**************************************************************
-    Affiche la liste des 20 dernier voyages dans la section news
+    Affiche la liste des 10 dernier voyages dans la section news
    **************************************************************/
 	public function newstravelAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
-		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 20, 0);
+		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 10, 0);
 
 		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel));
 	}
@@ -88,12 +88,13 @@ class VoyageController extends Controller
       if($travelform->isValid())
       {
 
+        $this->Duration($travelclass->getStartdate(), $travelclass->getEnddate());
         //Remplissage automatique du champ duration
-        $datetime1 = $travelclass->getStartdate();
+        /*$datetime1 = $travelclass->getStartdate();
         $datetime2 = $travelclass->getEnddate();
         $duration = $datetime1->diff($datetime2);
         $duration = $duration->days;
-        $travelclass->setDuration($duration);
+        $travelclass->setDuration($duration);*/
 
         //Remplissage du champs iduser
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -183,4 +184,12 @@ class VoyageController extends Controller
 
     return $this->render('PaTVoyageBundle:Voyage:delete.html.twig', array('voyage' => $travelclass, 'form' => $travelform->createView()));
 	}
+
+  //Fonction pour définir le nombre de jours 
+  public function Duration( $datetime1,  $datetime2)
+  {
+          $duration = $datetime1->diff($datetime2);
+          $duration = $duration->days;
+          $travelclass->setDuration($duration);
+  }
 }

@@ -1,7 +1,5 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
-        PaT\UserBundle\Entity\User: sha512
         FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
@@ -15,7 +13,7 @@ security:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         main:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
 
     firewalls:
         dev:
@@ -28,30 +26,37 @@ security:
             provider:  main
 
             oauth:
-                failure_path: /connect
-                login_path: /connect
-                check_path: /connect
-                provider: main
                 resource_owners:
-                    github:           "/login/check-github"
-                    facebook:         "/login/check-facebook"
-                    google:           "/login/check-google"
+                    facebook:           "/login/check-facebook"
+                    google:             "/login/check-google"
+                login_path:        /login
+                failure_path:      /login
+
                 oauth_user_provider:
-                    service: hwi_oauth.user.provider.fosub_bridge
+                    #this is my custom user provider, created from FOSUBUserProvider - will manage the
+                    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+                    service: my_user_provider
 
             form_login:
-                login_path: fos_user_security_login
-                check_path: fos_user_security_check
-                always_use_default_target_path : true
-                default_target_path: /
-                use_referer : true
-            logout:
-                path:   fos_user_security_logout
-                target: /
+                provider: main
+                csrf_provider: form.csrf_provider
+                login_path: /login
+                check_path: /login_check
+
+            logout: true
+
+        login:
+            pattern:  ^/login$
+            security: false
+
             remember_me:
-                key:        %secret% # %secret% est un paramètre de parameters.yml
+                key: "%secret%"
+                lifetime: 31536000 # 365 days in seconds
+                path: /
+                domain: ~ # Defaults to the current domain from $_SERVER
 
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
         - { path: ^/myAccount, roles: ROLE_USER }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/voyage/news, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/voyage, roles: ROLE_USER }

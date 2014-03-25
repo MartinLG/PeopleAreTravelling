@@ -84,29 +84,23 @@ hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: main
     connect:
-        confirmation: true
+        account_connector: my_user_provider
         #account_connector: hwi_oauth.user.provider.fosub_bridge
         #registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
         #registration_form: fos_user.registration.form
 
     resource_owners:
-        github:
-            type:                github
-            client_id:           %github_client_id%
-            client_secret:       %github_client_secret%
-            scope:               "user:email"
-
         facebook:
             type:                facebook
-            client_id:           %facebook_client_id%
-            client_secret:       %facebook_client_secret%
+            client_id:           "%facebook_client_id%"
+            client_secret:       "%facebook_client_secret%"
             scope:               "email"
 
         google:
             type:                google
-            client_id:           %google_client_id%
-            client_secret:       %google_client_secret%
-            scope:               "email"
+            client_id:           "%google_client_id%"
+            client_secret:       "%google_client_secret%"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
 
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
@@ -114,6 +108,6 @@ hwi_oauth:
 
         # mapping between resource owners (see below) and properties
         properties:
-            github: githubID
-            facebook: facebookID
-            google: googleID
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebook_id
+            google: google_id

@@ -17,3 +17,6 @@ Change_Country:
 Change_VisitedCountry:
     path:  /myAccount/Change-Visited-Country
     defaults: { _controller: PaTUserBundle:ChangeVisitedCountries:index }
+
+Oauth_Same_Email:
+    path:  /oauth/same-email
