@@ -36,6 +36,7 @@ class FOSUBUserProvider extends BaseClass
  
         $this->userManager->updateUser($user);
     }
+
  
     /**
      * {@inheritdoc}
@@ -59,9 +60,9 @@ class FOSUBUserProvider extends BaseClass
             $user->$setter_token($response->getAccessToken());
             //I have set all requested data with the user's username
             //modify here with relevant data
-            $user->setUsername($nickname);
+            $user->setUsername($this->checkLogin($nickname));
             $user->setEmail($email);
-            $user->setPassword("azerty");
+            $user->setPassword($this->randomPassword());
             $user->setCountry("Undefined");
             $user->setEnabled(true);
             $this->userManager->updateUser($user);
@@ -80,7 +81,11 @@ class FOSUBUserProvider extends BaseClass
         return $user;
     }
 
-    /*function randomPassword() {
+    
+    /**
+     * {@inheritDoc}
+     */
+    function randomPassword() {
         $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
         $pass = array(); //remember to declare $pass as an array
         $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
@@ -89,6 +94,15 @@ class FOSUBUserProvider extends BaseClass
             $pass[] = $alphabet[$n];
         }
         return implode($pass); //turn the array into a string
-}*/
- 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    function checkLogin($nickname) {
+        $string = iconv ('UTF-8', 'US-ASCII//TRANSLIT//IGNORE', $nickname);
+        $string = preg_replace ('#[^.0-9a-zA-Z]+#i', '', $string);
+        //$string = strtolower ($string);
+        return $string;
+    }
 }
