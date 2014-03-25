@@ -12,8 +12,11 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+<<<<<<< HEAD
     github_client_id: 67406de69fbb05e5da21
     github_client_secret: f0c26a34ae3b8c0debc964f44c7e209921321c9b
+=======
+>>>>>>> 4f8b661adebe383ea7a21ee7418135f78ae97952
     facebook_client_id: '286366461488621'
     facebook_client_secret: c37469964dc16a2f2d6b69235733393e
     google_client_id: 840912185438-ej1m9fmpfa01lgdrmtc2umph03bg28j8.apps.googleusercontent.com
