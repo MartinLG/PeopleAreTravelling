@@ -29,6 +29,12 @@ twig:
     globals:
         fos_csrf_provider: "@form.csrf_provider"
 
+services:
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+            - { name: twig.extension }
+
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%

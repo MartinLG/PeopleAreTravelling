@@ -79,7 +79,7 @@ class Travel
 
     /**
      * @var integer
-     *
+     * @ORM\ManyToOne(targetEntity="Sdz\PaT\UserBundle\Entity\User")
      * @ORM\Column(name="iduser", type="integer")
      */
     private $iduser;
@@ -305,5 +305,16 @@ class Travel
     public function getIduser()
     {
         return $this->iduser;
+    }
+
+
+    //test Textes complets  id  username 
+    public function getAutorUsername()
+    {
+        $qb = $this->_em->createQueryBuilder();
+
+        $qb->select('a')->from('PaTUserBundle:User', 'a')->where('a.id = :id')->setParameter('id', $Iddelautheur);
+
+        return $qb->getQuery()->getResult();
     }
 }

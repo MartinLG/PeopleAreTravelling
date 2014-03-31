@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7e55747995b5a5fb548ee8e667f6dc45",
+    "hash": "b74fe44a24d3b1089c1a7837293b2f66",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1094,6 +1094,60 @@
             "time": "2013-12-07 10:10:39"
         },
         {
+            "name": "jasny/twig-extensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jasny/twig-extensions.git",
+                "reference": "9ed046b433e9448a81db83fc437fe802a4cb3de4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jasny/twig-extensions/zipball/9ed046b433e9448a81db83fc437fe802a4cb3de4",
+                "reference": "9ed046b433e9448a81db83fc437fe802a4cb3de4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "twig/twig": "1.*"
+            },
+            "suggest": {
+                "ext-intl": "Required for the use of the LocalDate Twig extension",
+                "ext-pcre": "Required for the use of the PCRE Twig extension"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jasny\\Twig": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnold Daniels",
+                    "email": "arnold@jasny.net",
+                    "homepage": "http://www.jasny.net"
+                }
+            ],
+            "description": "A set of useful Twig filters",
+            "homepage": "http://github.com/jasny/twig-extensions#README",
+            "keywords": [
+                "PCRE",
+                "array",
+                "date",
+                "datetime",
+                "preg",
+                "regex",
+                "templating",
+                "text",
+                "time"
+            ],
+            "time": "2014-02-07 17:56:30"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.17",
             "source": {
@@ -2025,7 +2079,8 @@
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
-        "hwi/oauth-bundle": 20
+        "hwi/oauth-bundle": 20,
+        "jasny/twig-extensions": 20
     },
     "platform": {
         "php": ">=5.3.3"

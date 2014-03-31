@@ -8,10 +8,51 @@
 {% block Column_centrale %}
 
 	{# Deuxiéme colone #}
-	<h3>Les derniers voyages</h3>
+	<h2>Les derniers voyages</h2><script src="holder.js"></script>
 
-	<ul>		
-		{% for Trip in TripList %}
+	<div class="container row" style="margin: 50px;">			
+		{% for Trip in TripList%}
+			<div class="col-md-4" >
+
+				<div class="thumbnail" >
+					
+					<img src="{{ asset('images/profile_pic.gif') }}" alt="web/images/profile_pic.gif">
+					
+					<div class="caption">
+						<!-- Titre de l'article -->
+						<h3>{{Trip.title}}</h3>
+						<h4>{{ Trip.user.username }}</h4>
+						
+						<!-- Données -->
+						<p>
+							<div class="row">
+								<table class="col-md-12">
+									
+										
+									
+									<!-- Lieu, Durée, Budget -->
+									<tr><td width="33.3%"> Lieu : {{ Trip.place }}</td><td width="33.3%"> Durée : {{ Trip.duration }} J</td><td width="33.4%"> Budget : {{ Trip.budget }}€</td></tr> 
+								</table>
+							</div>
+
+							<br>
+								
+								<!-- Lieu, Durée, Budget -->
+								{{ Trip.description | truncate(300, false, ' [...]')}}
+							<br><br>
+						</p>
+
+						<p><a href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}" class="btn btn-primary" role="button">Voir ...</a>  <a href="#" class="btn btn-default" role="button">plus tard</a></p>
+
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+
+		<!-- <ul>		
+		{#% for Trip in TripList %}
 		<li  class="table well well-lg">
 			<a class="lien" href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}">
 				<table>
@@ -21,9 +62,9 @@
 					<tr><td colspan="3">{{ Trip.description }}</td></tr>
 				</table>
 			</a>
-		</li>
-		{% endfor %}
-	</ul>
+		</li> 
+		{% endfor %#}
+	</ul> -->
 
 {% endblock %}
 

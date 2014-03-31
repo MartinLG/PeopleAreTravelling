@@ -20,7 +20,13 @@ class VoyageController extends Controller
 	public function newstravelAction()
 	{
 		$Repository = $this->getDoctrine()->getManager(); 
+
 		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 10, 0);
+    $i = 0;
+    foreach ($travel as &$trav) {
+      $trav['user'] = $Repository->getRepository('PaTUserBundle:user')->findById($trav->getIduser());
+    }
+    //$user = $Repository->getRepository('PaTUserBundle:user')->findById($travel->getIduser());
 
 		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel));
 	}
@@ -32,13 +38,13 @@ class VoyageController extends Controller
    ******************************************************/
   public function traveluserAction ($userid)
   {
-    $user = $this->container->get('security.context')->getToken()->getUser()->getId();
+    $userId = $this->container->get('security.context')->getToken()->getUser()->getId();
 
-    if($user == $userid)
+    if($userId == true)
     {
       $Repository = $this->getDoctrine()->getManager();
       $traveluser = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array('iduser' => $userid), array('publicationdate' =>'desc'), 10, 0);
-
+      
       return $this->render('PaTVoyageBundle:Voyage:index.html.twig', array('TripList' => $traveluser));
     }
     else
