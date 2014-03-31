@@ -21,7 +21,7 @@
 					<div class="caption">
 						<!-- Titre de l'article -->
 						<h3>{{Trip.title}}</h3>
-						<h4>{{ Trip.user.username }}</h4>
+						<h4>{% for User in UserList %}{% if User.id == Trip.iduser %}{{ User.username }}{% endif %}{% endfor %}</h4>
 						
 						<!-- Données -->
 						<p>

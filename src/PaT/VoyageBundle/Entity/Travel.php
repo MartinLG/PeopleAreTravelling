@@ -2,6 +2,8 @@
 
 namespace PaT\VoyageBundle\Entity;
 
+use PaT\UserBundle\Entity\User;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -305,16 +307,5 @@ class Travel
     public function getIduser()
     {
         return $this->iduser;
-    }
-
-
-    //test Textes complets  id  username 
-    public function getAutorUsername()
-    {
-        $qb = $this->_em->createQueryBuilder();
-
-        $qb->select('a')->from('PaTUserBundle:User', 'a')->where('a.id = :id')->setParameter('id', $Iddelautheur);
-
-        return $qb->getQuery()->getResult();
     }
 }

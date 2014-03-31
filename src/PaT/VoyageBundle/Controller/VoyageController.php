@@ -22,13 +22,15 @@ class VoyageController extends Controller
 		$Repository = $this->getDoctrine()->getManager(); 
 
 		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 10, 0);
-    $i = 0;
-    foreach ($travel as &$trav) {
-      $trav['user'] = $Repository->getRepository('PaTUserBundle:user')->findById($trav->getIduser());
-    }
+    //$i = 0;
+    //foreach ($travel as $trav) {
+      $user = $Repository->getRepository('PaTUserBundle:user')->findAll();
+      /*$user[$i]=$usertmp;   
+      $i++; 
+    }*/
     //$user = $Repository->getRepository('PaTUserBundle:user')->findById($travel->getIduser());
 
-		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel));
+		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel, 'UserList' => $user));
 	}
 
 
