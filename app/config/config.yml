@@ -116,14 +116,14 @@ hwi_oauth:
             facebook: facebook_id
             google: google_id
 
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
 
-genemu_form:
-    image:
-        enabled:  true
-        selected: 'large'
-        filters:  ['rotate', 'bw', 'negative', 'sepia', 'crop']
-        thumbnails:
-            small:  [100, 100]
-            medium: [200, 200]
-            large:  [500, 500]
-            extra:  [1024, 768]
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }

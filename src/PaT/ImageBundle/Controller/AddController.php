@@ -11,9 +11,11 @@ class AddController extends Controller
     public function indexAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
+        $configs['folder'] = "web/images/Users/"/* + $user->getId() + "/"*/;
+        $options['configs'] = $configs;
 
         // on cree le formulair en fonction de traveleditetype 
-	    $form = $this->createForm(new AddPictureType);
+	    $form = $this->createForm(new AddPictureType, $options);
 	    $request = $this->get('request');
 
 	    if($request->getMethod() == 'POST')

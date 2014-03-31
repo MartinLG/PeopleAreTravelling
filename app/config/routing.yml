@@ -60,6 +60,12 @@ facebook_login:
 google_login:
     pattern: /login/check-google
 
+cmf_media_file:
+    resource: "@CmfMediaBundle/Resources/config/routing/file.xml"
 
-genemu_image:
-    resource: "@GenemuFormBundle/Resources/config/routing/image.xml"
+cmf_media_image:
+    resource: "@CmfMediaBundle/Resources/config/routing/image.xml"
+
+_imagine:
+    resource: .
+    type:     imagine
