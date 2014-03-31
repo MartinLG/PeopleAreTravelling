@@ -1,0 +1,3 @@
+pa_t_image_add:
+    pattern:  /add
+    defaults: { _controller: PaTImageBundle:Add:index }

@@ -115,3 +115,15 @@ hwi_oauth:
             # these properties will be used/redefined later in the custom FOSUBUserProvider service.
             facebook: facebook_id
             google: google_id
+
+
+genemu_form:
+    image:
+        enabled:  true
+        selected: 'large'
+        filters:  ['rotate', 'bw', 'negative', 'sepia', 'crop']
+        thumbnails:
+            small:  [100, 100]
+            medium: [200, 200]
+            large:  [500, 500]
+            extra:  [1024, 768]

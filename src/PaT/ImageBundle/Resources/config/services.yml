@@ -1,0 +1,7 @@
+parameters:
+#    pa_t_image.example.class: PaT\ImageBundle\Example
+
+services:
+#    pa_t_image.example:
+#        class: %pa_t_image.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

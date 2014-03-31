@@ -3,4 +3,4 @@
 /app/cache/*
 /app/logs/*
 /vendor/
-/app/config/parameters.ym
+/app/config/parameters.yml

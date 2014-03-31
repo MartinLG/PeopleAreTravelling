@@ -24,7 +24,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),             
             new PaT\ArticleBundle\PaTArticleBundle(),       //Bundle pour les actions associées aux articles
-
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new PaT\ImageBundle\PaTImageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

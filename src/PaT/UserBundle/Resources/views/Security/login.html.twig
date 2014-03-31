@@ -6,7 +6,7 @@
 
   <div class="container">
     {% if error %}
-      <div class="alert alert-danger">Bad login or password !</div>
+      <div class="alert alert-danger">Bad email or password !</div>
     {% endif %}
     <div class="formuLog" >
       <form action="{{ path('fos_user_security_check') }}" method="post">
