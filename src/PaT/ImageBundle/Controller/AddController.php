@@ -4,37 +4,46 @@ namespace PaT\ImageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use PaT\ImageBundle\Entity\Pictures;
-use PaT\ImageBundle\Form\AddPictureType;
+use PaT\UserBundle\Entity\User;
 
 class AddController extends Controller
 {
     public function indexAction()
     {
+		$request = $this->get('request');
+    	$files = $request->files;
+
+		$em = $this->getDoctrine()->getManager();
+
+    	$ds = DIRECTORY_SEPARATOR;
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $configs['folder'] = "web/images/Users/"/* + $user->getId() + "/"*/;
-        $options['configs'] = $configs;
+        $storeFolder = "web/images/Users/"/* . $user->getId() . "/"*/;
 
-        // on cree le formulair en fonction de traveleditetype 
-	    $form = $this->createForm(new AddPictureType, $options);
-	    $request = $this->get('request');
+        if (!empty($_FILES)) {
 
-	    if($request->getMethod() == 'POST')
-	    {
-	       $form->bind($request);
+        	foreach ($files as $uploadedFile) {
+        		//$tempFile = $_FILES['file']['tmp_name'];          //3             
+      
+	    		$targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
+	     
+	    		//$targetFile =  $targetPath. $_FILES['file']['name'];  //5
 
-	       if($form->isValid())
-	       {
+	    		$pic = new Pictures;
 
-	          $em = $this->getDoctrine()->getManager();
-	          $em->persist($user);
-	          $em->flush();
+	    		$pic->setName("test");
+	    		$pic->setDate(new \DateTime());
+	    		$pic->setTravel(1);
+	    		$pic->setPath($storeFolder);
 
-	          $this->get('session')->getFlashBag()->add('info', 'Your picture has been edited successfully');
+	    		$file = $uploadedFile->move($targetPath, "test"); //6
 
-	          return $this->redirect($this->generateUrl('Account'));
-	        }
-	      }
+	    		$em->persist($pic);
+	        	$em->flush();
+        	}
+     
+    		return new JsonResponse([]);
+		}
 
-	    return $this->render('PaTImageBundle:Add:index.html.twig', array('form' => $form->createView()));
+	    return $this->render('PaTImageBundle:Add:index.html.twig');
     }
 }

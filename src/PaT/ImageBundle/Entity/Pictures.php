@@ -38,14 +38,14 @@ class Pictures
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="travel", type="integer")
+     * @ORM\Column(name="travel", type="integer", nullable=true)
      */
     private $travel;
 
