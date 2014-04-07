@@ -12,6 +12,8 @@
 {% endblock %}
 
 {% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript">ChangeNavSel('navMap');</script>
 	<script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6wCOZ2BTmyuqJQnlqGbN4pf9_dyXXR10&sensor=false&libraries=panoramio">   //charge l'API Google Map valable sur mon serveur LocalHost
     </script>
@@ -98,5 +100,5 @@
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <script type="text/javascript">ChangeNavSel('navMap');</script>
+    
 {% endblock %}
