@@ -35,10 +35,10 @@
 											<th class="col-md-3"> Budget</th>
 										</tr>
 									</div >
-									<!-- Données =>Lieu, Durée, Budget -->
+									<!-- Données => Lieu, Durée, Budget -->
 									<div class="row">
 										<tr class="col-md-12">
-											<td class="col-md-3"><a href="#">{{ Trip['infouser'].username }}</td>
+											<td class="col-md-3"><a href="#">{{ Trip['infouser'].username }}</a></td>
 											<td class="col-md-3">{{ Trip['infotravel'].place }}</td>
 											<td class="col-md-3">{{ Trip['infotravel'].duration }} J</td>
 											<td class="col-md-3">{{ Trip['infotravel'].budget }}€</td>
@@ -62,21 +62,9 @@
 		{% endfor %}
 
 	</div>
-
-		<!-- <ul>		
-		{#% for Trip in TripList %}
-		<li  class="table well well-lg">
-			<a class="lien" href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}">
-				<table>
-					<tr><td colspan="3" >{{Trip.title}}</td></tr>
-					<tr><td width="33.3%"> Lieu : {{ Trip.place }}</td><td width="33.3%"> Durée : {{ Trip.duration }} jours</td><td width="33.4%"> Budget : {{ Trip.budget }}€</td></tr> 
-					<tr><td colspan="3">Du {{ Trip.startdate|date('d/m/Y') }} au {{ Trip.enddate|date('d/m/Y') }}</td></tr>
-					<tr><td colspan="3">{{ Trip.description }}</td></tr>
-				</table>
-			</a>
-		</li> 
-		{% endfor %#}
-	</ul> -->
-
 {% endblock %}
 
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">ChangeNavSel('navNews');</script>
+{% endblock %}
