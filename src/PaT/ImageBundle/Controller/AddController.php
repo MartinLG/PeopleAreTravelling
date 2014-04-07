@@ -10,40 +10,42 @@ class AddController extends Controller
 {
     public function indexAction()
     {
-		$request = $this->get('request');
-    	$files = $request->files;
+	    return $this->render('PaTImageBundle:Add:index.html.twig');
+    }
+
+    public function addPicAction()
+    {
+    	$request = $this->container->get('request');
 
 		$em = $this->getDoctrine()->getManager();
 
     	$ds = DIRECTORY_SEPARATOR;
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $storeFolder = "web/images/Users/"/* . $user->getId() . "/"*/;
+        $storeFolder = "web" . $ds ."images" . $ds . "Users" /*. $ds . $user->getId() . $ds*/;
 
         if (!empty($_FILES)) {
 
-        	foreach ($files as $uploadedFile) {
-        		//$tempFile = $_FILES['file']['tmp_name'];          //3             
+        		$tempFile = $_FILES['file']['tmp_name'];          //3             
       
-	    		$targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
+	    		$targetPath = __DIR__ . $ds . ".." . $ds . ".." . $ds . ".." . $ds . ".." . $ds . $storeFolder . $ds;  //4
 	     
-	    		//$targetFile =  $targetPath. $_FILES['file']['name'];  //5
+        		//$targetPath = __DIR__ . $storeFolder . $ds;
+
+	    		$targetFile =  $targetPath. $_FILES['file']['name'];  //5
 
 	    		$pic = new Pictures;
 
-	    		$pic->setName("test");
+	    		$pic->setName($_FILES['file']['name']);
 	    		$pic->setDate(new \DateTime());
 	    		$pic->setTravel(1);
-	    		$pic->setPath($storeFolder);
+	    		$pic->setPath($targetFile);
 
-	    		$file = $uploadedFile->move($targetPath, "test"); //6
+	    		move_uploaded_file($tempFile,$targetFile); //6
 
 	    		$em->persist($pic);
 	        	$em->flush();
-        	}
      
-    		return new JsonResponse([]);
+    		//return new JsonResponse([]);
 		}
-
-	    return $this->render('PaTImageBundle:Add:index.html.twig');
     }
 }

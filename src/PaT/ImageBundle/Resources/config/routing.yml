@@ -1,3 +1,17 @@
 pa_t_image_add:
     pattern:  /add
     defaults: { _controller: PaTImageBundle:Add:index }
+
+AjaxTest:
+    pattern:  /AjaxTest
+    defaults: { _controller: PaTImageBundle:Test:index }
+
+AjaxLauncher:
+    pattern:  /AjaxLauncher
+    defaults: { _controller: PaTImageBundle:Test:ajaxTest }
+    requirements:
+        _method: POST
+
+UploadPic:
+    pattern:  /UploadPic
+    defaults: { _controller: PaTImageBundle:Add:addPic }

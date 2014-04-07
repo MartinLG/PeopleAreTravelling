@@ -14,11 +14,7 @@
 
     <div class="well">
       <p>Here we add a Pic =)</p>
-      <form action="{{ path('pa_t_image_add') }}" method="post" class="dropzone">
-        <div class="fallback">
-          <input name="file" type="file" multiple />
-        </div>
-      </form>
+      <form action="{{ path('UploadPic') }}" class="dropzone"></form>
     </div>
   {% endblock %}
 
