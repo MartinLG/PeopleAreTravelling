@@ -20,45 +20,48 @@ class User extends BaseUser
    */
   protected $id;
 
-  /**
-     * @ORM\Column(type="string", length=255)
-     *
-     * @Assert\NotBlank(message="Please enter your country.", groups={"Registration", "Profile"})
-     */
+  /*
+   * @ORM\Column(type="string", length=255)
+   * @Assert\NotBlank(message="Please enter your country.", groups={"Registration", "Profile"})
+   */
   private $country;
 
   /**
-     * @ORM\Column(type="date", nullable=true)
-     *
-     * 
-     */
+   * @ORM\Column(type="date", nullable=true)
+   */
   private $birthdate;
 
   /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * 
-     */
+   * @ORM\Column(type="string", length=255, nullable=true)
+   */
   private $status;
 
   /**
-     * @ORM\Column(type="text", nullable=true)
-     *
-     * 
-     */
+   * @ORM\Column(type="text", nullable=true)
+   */
   private $visitedcountries;
 
-  /** @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) */
-    protected $facebook_id;
+  /**
+   * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true) 
+   */
+  protected $facebook_id;
  
-    /** @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true) */
-    protected $facebook_access_token;
- 
-    /** @ORM\Column(name="google_id", type="string", length=255, nullable=true) */
-    protected $google_id;
- 
-    /** @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) */
-    protected $google_access_token;
+  /**
+   * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
+   */
+  protected $facebook_access_token;
+
+  /*
+   * @ORM\Column(name="google_id", type="string", length=255, nullable=true) 
+   */
+  protected $google_id;
+
+  /*
+   * @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) 
+   */
+  protected $google_access_token;
+
+
 
   public function setCountry($country)
   {

@@ -20,29 +20,41 @@
 					
 					<div class="caption">
 						<!-- Titre de l'article -->
-						<h3>{{Trip.title}}</h3>
-						<h4>{% for User in UserList %}{% if User.id == Trip.iduser %}{{ User.username }}{% endif %}{% endfor %}</h4>
+						<h3>{{Trip['infotravel'].title}}</h3>
 						
 						<!-- Données -->
 						<p>
 							<div class="row">
 								<table class="col-md-12">
-									
-										
-									
-									<!-- Lieu, Durée, Budget -->
-									<tr><td width="33.3%"> Lieu : {{ Trip.place }}</td><td width="33.3%"> Durée : {{ Trip.duration }} J</td><td width="33.4%"> Budget : {{ Trip.budget }}€</td></tr> 
+									<!-- Label => Lieu, Durée, Budget -->
+									<div class="row">
+										<tr class="col-md-12">
+											<th class="col-md-3">Auteur</th>
+											<th class="col-md-3"> Lieu</th>
+											<th class="col-md-3"> Durée</th>
+											<th class="col-md-3"> Budget</th>
+										</tr>
+									</div >
+									<!-- Données =>Lieu, Durée, Budget -->
+									<div class="row">
+										<tr class="col-md-12">
+											<td class="col-md-3"><a href="#">{{ Trip['infouser'].username }}</td>
+											<td class="col-md-3">{{ Trip['infotravel'].place }}</td>
+											<td class="col-md-3">{{ Trip['infotravel'].duration }} J</td>
+											<td class="col-md-3">{{ Trip['infotravel'].budget }}€</td>
+										</tr> 
+									</div >
 								</table>
 							</div>
 
 							<br>
 								
 								<!-- Lieu, Durée, Budget -->
-								{{ Trip.description | truncate(300, false, ' [...]')}}
+								{{ Trip['infotravel'].description | truncate(300, false, ' [...]')}}
 							<br><br>
 						</p>
 
-						<p><a href="{{path('pa_t_voyage_view', { 'travelid' : Trip.id})}}" class="btn btn-primary" role="button">Voir ...</a>  <a href="#" class="btn btn-default" role="button">plus tard</a></p>
+						<p><a href="{{path('pa_t_voyage_view', { 'travelid' : Trip['infotravel'].id})}}" class="btn btn-primary" role="button">Voir ...</a>  <a href="#" class="btn btn-default" role="button">plus tard</a></p>
 
 					</div>
 				</div>

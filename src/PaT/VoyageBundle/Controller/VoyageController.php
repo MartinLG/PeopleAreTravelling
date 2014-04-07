@@ -19,18 +19,32 @@ class VoyageController extends Controller
    **************************************************************/
 	public function newstravelAction()
 	{
-		$Repository = $this->getDoctrine()->getManager(); 
+    //Connection au repository
+    $Repository = $this->getDoctrine()->getManager();
 
-		$travel = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 10, 0);
-    //$i = 0;
-    //foreach ($travel as $trav) {
-      $user = $Repository->getRepository('PaTUserBundle:user')->findAll();
-      /*$user[$i]=$usertmp;   
-      $i++; 
-    }*/
-    //$user = $Repository->getRepository('PaTUserBundle:user')->findById($travel->getIduser());
+    //Declaration d'un tableau qui contiendra l'ensemble des données à renvoyer
+    $TravelList = array();
 
-		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $travel, 'UserList' => $user));
+    //On selectionne les voyages à renvoyer
+    $travelSelect = $Repository->getRepository('PaTVoyageBundle:travel')->findBy(array(), array('publicationdate' => 'desc'), 9, 0);
+
+    $i = 0;
+    //Pour chaque voyage
+    foreach ($travelSelect as $theTravel) {
+
+      //On crée un nouveau tableau pour 1 voyage
+      $Travel = array();
+      //On ajoute un champs Infotravel avec l'ensemble des info recupéré par la requette
+      $Travel['infotravel'] = $theTravel;
+      //On ajoute un champs Infouser avec l'ensemble des info recupéré par la requette
+      $Travel['infouser'] = $Repository->getRepository('PaTUserBundle:user')->find($theTravel->getIduser());
+      //On associe le tableau du voyage au tableau de sortie du controller
+      $TravelList[$i] = $Travel;
+      //On se prépare à créer un nouveau champs de tableau.
+      $i++;
+    }
+
+		return $this->render('PaTVoyageBundle:Voyage:newsview.html.twig', array('TripList' => $TravelList));
 	}
 
 
