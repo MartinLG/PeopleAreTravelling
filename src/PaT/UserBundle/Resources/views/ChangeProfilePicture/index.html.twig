@@ -1,0 +1,29 @@
+{% extends "PaTUserBundle::layout.html.twig" %}
+
+{% block title %}
+  Account - {{ parent() }}
+{% endblock %}
+
+  {% block Column_central %}
+    <h3>Change Profile Picture</h3>
+
+    <div class="well">
+      <p>We Will change your Profile Picture =)</p>
+
+      {{ render(controller('PaTImageBundle:ChoosePicture:index', { 'ajaxRequest': target })) }}
+    </div>
+  {% endblock %}
+
+
+
+  {% block Column_left %}
+    <h3>My links</h3>
+
+    <div class="well well-lg">
+      <p>test left</p>
+    </div>
+  {% endblock %}
+
+{% block javascripts_page %}
+  <script type="text/javascript">ChangeNavSel('navAccount');</script>
+{% endblock %}

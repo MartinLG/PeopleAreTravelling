@@ -14,7 +14,7 @@
 
     <div class="well">
       <p>Here we add a Pic =)</p>
-      <form action="{{ path('UploadPic') }}" class="dropzone"></form>
+      <form id="myDropzone" action="{{ path('UploadPic') }}" class="dropzone"></form>
     </div>
   {% endblock %}
 
@@ -31,5 +31,15 @@
 {% block javascripts_page %}
   <script type="text/javascript">ChangeNavSel('navAccount');</script>
   <script src="{{ asset('js/dropzone.min.js') }}"></script>
+  <script type="text/javascript">
+  Dropzone.options.myDropzone = {
+    maxFilesize: 1, // MB
+    success: function(file, rep) {
+      $getJSON(rep, function(donnees){
+        alert("done");
+      }
+    }
+  };
+  </script>
 {% endblock %}
 
