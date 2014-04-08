@@ -2,7 +2,7 @@
     <div class="well">
       {% for Pic in Pictures %}
         <div class="table well well-lg">
-          <img src="{{ asset(Pic.path) }}" style="width: 600px">
+          <img src="{{ asset(Pic.path) }}" style="width: 600px; height: auto;" class="img-responsive img-thumbnail">
           <p> {{ Pic.name }} </p>
           <button type="button" class="btn btn-primary" onclick="ChoosePic({{ Pic.id }});">Choose it !</button>
         </div>
@@ -17,7 +17,9 @@
             type: "POST",
               url: "{{ path(target) }}",
               data: DATA,
-           });
-        document.location.href="{{ path('Account') }}";
+              success: function(){
+                 document.location.href="{{ path('Account') }}";
+              }
+           });        
       }
     </script>

@@ -31,6 +31,6 @@ class ChangeProfilePictureController extends Controller
 
         $this->get('session')->getFlashBag()->add('info', "You've got your new profile picture."); 
 
-        return $this->redirect($this->generateUrl('Account'));
+        return new JsonResponse([]);
     }
 }

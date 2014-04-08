@@ -24,7 +24,7 @@
         {% if profilePic is null %}
           <img src="{{ asset('images/profile_pic.gif') }}">
         {% else %}
-          <img src="{{ asset(profilePic) }}" style="width: 300px; height: 300px;">
+          <img src="{{ asset(profilePic) }}" style="width: 300px; height: auto;" class="img-thumbnail img-responsive">
         {% endif %}
       </div>
       <div class="personnal-infos">
