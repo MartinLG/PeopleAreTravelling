@@ -36,7 +36,7 @@
     maxFilesize: 1, // MB
     success: function(file, rep) {
       $getJSON(rep, function(donnees){
-        alert("done");
+        alert(donnees.id . donnees.name . donnees.path);
       }
     }
   };
