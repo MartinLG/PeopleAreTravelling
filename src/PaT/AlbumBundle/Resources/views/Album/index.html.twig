@@ -1,1 +1,39 @@
-index.html.twig
+{% extends "PaTVoyageBundle::layout_for_news.html.twig" %}
+
+{% block title %}
+  {{ Album.name }} - {{ parent() }}
+{% endblock %}
+
+{% block Top_Menu %}
+	<ul id="nav"><!-- 
+    --><li><a href="#">Add Pictures</a></li><!-- 
+    --><li><a href="#">Add Album</a></li><!-- 
+    --><li><a href="#">À propos</a></li><!-- 
+    --><li><a href="#">Contact</a></li>  
+	</ul>  
+{% endblock %}
+
+{% block Column_centrale %}
+
+	{# Deuxiéme colone #}
+	<h2>{{ Album.name }}</h2><script src="holder.js"></script>
+
+	<div class="container row" style="margin: 50px;">			
+		{% for Pic in Pics %}
+			<div class="col-md-4" >
+
+				<div class="thumbnail" >
+					
+					<img src="{{ asset( Pic.path ) }}" alt="test">
+					
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">ChangeNavSel('navAccount');</script>
+{% endblock %}

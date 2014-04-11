@@ -1,0 +1,29 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+	
+	<div class="container main-page">
+
+		{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+		{% block PaT_body %}
+			
+			<div class="well">
+				{% block Top_Menu %}
+				{% endblock %}
+			</div>
+
+			{# Colone centrale #}
+			<div class="well">
+				{% block Column_centrale %}
+
+				{% endblock %}
+			</div>
+
+		{% endblock %}
+
+	</div>
+{% endblock %}
