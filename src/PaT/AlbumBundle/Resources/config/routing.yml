@@ -1,0 +1,3 @@
+View_Album:
+    pattern:  /{album}
+    defaults: { _controller: PaTAlbumBundle:Album:view }

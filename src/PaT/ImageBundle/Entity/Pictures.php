@@ -45,9 +45,9 @@ class Pictures
     /**
      * @var integer
      *
-     * @ORM\Column(name="travel", type="integer", nullable=true)
+     * @ORM\Column(name="album", type="integer", nullable=true)
      */
-    private $travel;
+    private $album;
 
     /**
      * @var string
@@ -137,26 +137,26 @@ class Pictures
     }
 
     /**
-     * Set travel
+     * Set album
      *
-     * @param integer $travel
+     * @param integer $album
      * @return Pictures
      */
-    public function setTravel($travel)
+    public function setAlbum($album)
     {
-        $this->travel = $travel;
+        $this->album = $album;
 
         return $this;
     }
 
     /**
-     * Get travel
+     * Get album
      *
      * @return integer 
      */
-    public function getTravel()
+    public function getAlbum()
     {
-        return $this->travel;
+        return $this->album;
     }
 
     /**

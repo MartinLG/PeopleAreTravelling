@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new PaT\ImageBundle\PaTImageBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
+            new PaT\AlbumBundle\PaTAlbumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
