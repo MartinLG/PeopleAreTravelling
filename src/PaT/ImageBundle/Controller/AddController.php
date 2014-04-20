@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AddController extends Controller
 {
-    public function indexAction()
+    public function indexAction($albumid)
     {
-	    return $this->render('PaTImageBundle:Add:index.html.twig');
+	    return $this->render('PaTImageBundle:Add:index.html.twig', array('albumid' => $albumid));
     }
 
-    public function addPicAction()
+    public function addPicAction($albumid)
     {
     	$request = $this->container->get('request');
 
@@ -22,7 +22,7 @@ class AddController extends Controller
 
     	$ds = DIRECTORY_SEPARATOR;
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $storeFolder = "images" . $ds . "Users" . $ds . $user->getId() . $ds;
+        $storeFolder = "images" . $ds . "Users" . $ds . $user->getId() . $ds . $albumid . $ds;
 
         if (!empty($_FILES)) {
 
@@ -40,7 +40,7 @@ class AddController extends Controller
 
 	    		$pic->setName($_FILES['file']['name']);
 	    		$pic->setDate(new \DateTime());
-	    		$pic->setTravel(1);
+	    		$pic->setAlbum($albumid);
 	    		$pic->setPath($storeFolder . $_FILES['file']['name']);
 
 	    		move_uploaded_file($tempFile,$targetFile); //6

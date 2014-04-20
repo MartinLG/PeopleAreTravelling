@@ -1,3 +1,13 @@
 View_Album:
     pattern:  /{idalbum}
     defaults: { _controller: PaTAlbumBundle:Album:view }
+
+New_Album:
+    pattern:  /new/{idtravel}
+    defaults: { _controller: PaTAlbumBundle:Album:new }
+    requirements:
+        idvoyage: \d+
+
+AddPicsToAlbum:
+    pattern:  /addpics/{albumid}
+    defaults: { _controller: PaTAlbumBundle:Album:addpics }

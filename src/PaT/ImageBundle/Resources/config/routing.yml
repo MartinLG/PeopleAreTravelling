@@ -1,9 +1,9 @@
 pa_t_image_add:
-    pattern:  /add
+    pattern:  /add/{albumid}
     defaults: { _controller: PaTImageBundle:Add:index }
 
 UploadPic:
-    pattern:  /UploadPic
+    pattern:  /UploadPic/{albumid}
     defaults: { _controller: PaTImageBundle:Add:addPic }
 
 ChoosePic:

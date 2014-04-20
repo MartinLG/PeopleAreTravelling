@@ -1,0 +1,29 @@
+{% extends "PaTVoyageBundle::layout_for_news.html.twig" %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block Top_Menu %}
+	<ul id="nav"><!-- 
+    --><li><a href="#">Add Pictures</a></li><!-- 
+    --><li><a href="#">Add Album</a></li><!-- 
+    --><li><a href="#">À propos</a></li><!-- 
+    --><li><a href="#">Contact</a></li>  
+	</ul>  
+{% endblock %}
+
+{% block Column_centrale %}
+
+	<h2>Here we add a new album =)</h2>
+	<form method="POST" {{ form_enctype(form) }}>
+		{{ form_widget(form) }}
+		<input type="submit" id="submit" value="Envoyer" />
+	</form>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">ChangeNavSel('navAccount');</script>
+{% endblock %}

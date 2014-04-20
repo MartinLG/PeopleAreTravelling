@@ -14,7 +14,7 @@
 
     <div class="well">
       <p>Here we add a Pic =)</p>
-      <form id="myDropzone" action="{{ path('UploadPic') }}" class="dropzone"></form>
+      <form id="myDropzone" action="{{ path('UploadPic', { 'albumid': albumid }) }}" class="dropzone"></form>
     </div>
   {% endblock %}
 
