@@ -1,0 +1,14 @@
+
+{% block hwi_oauth_content %}
+    {% if error %}
+        <span>{{ error }}</span>
+    {% endif %}
+    <div style="text-align: center;">
+    	<div style="margin-bottom: 15px;">
+    		<a href="{{ hwi_oauth_login_url('facebook') }}"><img src="{{ asset('images/System/facebookconnect.png') }}"></a> <br />
+		</div>
+    	<div>
+    		<a href="{{ hwi_oauth_login_url('google') }}"><img src="{{ asset('images/System/googleconnect.png') }}"></a> <br />
+		</div>
+    </div>
+{% endblock hwi_oauth_content %}

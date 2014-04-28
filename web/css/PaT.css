@@ -2,7 +2,7 @@
 
 
 
-		CSS PROVISOIRE -- Ce CSS est totalementa réorganiser, ceci fera l'objet d'un travail
+		CSS PROVISOIRE -- Ce CSS est totalement a réorganiser, ceci fera l'objet d'un travail
 						  futur, dès lors que le site aura un peu plus de fonctionnalités.
 
 
@@ -16,6 +16,13 @@ html {
 body {
   padding-top: 70px;  /* Affiche sous la nav-bar */
   text-align: center;
+  background: url("../images/System/fond.jpg");
+  background-attachment:fixed;
+}
+
+.container {
+	background-color: rgba(255, 255, 255, 0.80);
+
 }
 
 .Thewelcome{

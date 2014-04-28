@@ -121,3 +121,15 @@ hwi_oauth:
             # these properties will be used/redefined later in the custom FOSUBUserProvider service.
             facebook: facebook_id
             google: google_id
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }

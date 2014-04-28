@@ -61,3 +61,4 @@ security:
         - { path: ^/myAccount, roles: ROLE_USER }
         - { path: ^/voyage/news, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/voyage, roles: ROLE_USER }
+        - { path: ^/pictures, roles: ROLE_USER }

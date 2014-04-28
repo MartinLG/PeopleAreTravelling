@@ -63,6 +63,11 @@ class User extends BaseUser
 
 
 
+  /**
+   * @ORM\Column(name="profile_picture", type="integer", nullable=true)
+   */
+  protected $profile_picture;
+
   public function setCountry($country)
   {
     $this->country = $country;
@@ -149,6 +154,16 @@ class User extends BaseUser
   public function getGoogleId()
   {
     return $this->google_id;
+  }
+
+  public function getProfilePicture()
+  {
+    return $this->profile_picture;
+  }
+
+  public function setProfilePicture($profile_picture)
+  {
+    $this->profile_picture = $profile_picture;
   }
 
   /**

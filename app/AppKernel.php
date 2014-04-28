@@ -24,7 +24,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),             
             new PaT\ArticleBundle\PaTArticleBundle(),       //Bundle pour les actions associées aux articles
-
+            new PaT\ImageBundle\PaTImageBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
+            new PaT\AlbumBundle\PaTAlbumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

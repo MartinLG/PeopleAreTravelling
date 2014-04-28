@@ -20,3 +20,11 @@ Change_VisitedCountry:
 
 Oauth_Same_Email:
     path:  /oauth/same-email
+
+Change_ProfilePicture:
+    path:  /myAccount/Change-ProfilePicture
+    defaults: { _controller:PaTUserBundle:ChangeProfilePicture:index }
+
+changeProfilePic:
+    path:  /myAccount/Change-ProfilePicture-Do-It
+    defaults: { _controller:PaTUserBundle:ChangeProfilePicture:changePic }

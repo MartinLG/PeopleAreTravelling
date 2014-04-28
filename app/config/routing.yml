@@ -1,3 +1,11 @@
+pa_t_album:
+    resource: "@PaTAlbumBundle/Resources/config/routing.yml"
+    prefix:   /album
+
+pa_t_image:
+    resource: "@PaTImageBundle/Resources/config/routing.yml"
+    prefix:   /pictures
+
 pa_t_article:
     resource: "@PaTArticleBundle/Resources/config/routing.yml"
     prefix:   /article
@@ -55,3 +63,13 @@ facebook_login:
 
 google_login:
     pattern: /login/check-google
+
+cmf_media_file:
+    resource: "@CmfMediaBundle/Resources/config/routing/file.xml"
+
+cmf_media_image:
+    resource: "@CmfMediaBundle/Resources/config/routing/image.xml"
+
+_imagine:
+    resource: .
+    type:     imagine
