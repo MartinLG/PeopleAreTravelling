@@ -14,27 +14,41 @@
 
 {# Colomne au centre #}
 {% block Column_centrale %}
-<h3>Liste des articles</h3>		
+
+	<h3>-- Article --</h3>
+
 	{% for article in article %}
 		<div class="well">
-			<div class="col-md-12">
-				<br>
-				{{ article.title }}
-				<br>
-				<br>
-				{{ article.poste }}
-				<br>
-				<br>
+
+			<!-- Titre -->
+			<div class="row" style="margin-bottom: 20px;">
+				<div class="col-md-12">
+					<h4>{{ article.title }}</h4>
+				</div>
 			</div>
 
-			<div class="col-md-12">
-				<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer </button></a></div>
-				<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Modifier </button></a></div>
-
+			<!-- corp de l'article -->
+			<div class="row" style="margin-bottom: 20px;">
+				<div class="col-md-12">
+					<p>{{ article.poste }}</p>
+				</div>
 			</div>
+
+			<!-- Bouttons en bas d'article -->
+			<div class="row">
+				<div class="col-md-6">
+					<a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}">
+						<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer </button>
+					</a>
+				</div>
+
+				<div class="col-md-6">
+					<a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}">
+						<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Modifier </button>
+					</a>
+				</div>
+			</div>
+
 		</div>
-		
 	{% endfor %}
-
-
 {% endblock %}
