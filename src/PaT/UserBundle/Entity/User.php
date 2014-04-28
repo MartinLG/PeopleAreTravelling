@@ -20,7 +20,7 @@ class User extends BaseUser
    */
   protected $id;
 
-  /*
+  /**
    * @ORM\Column(type="string", length=255)
    * @Assert\NotBlank(message="Please enter your country.", groups={"Registration", "Profile"})
    */
@@ -51,12 +51,12 @@ class User extends BaseUser
    */
   protected $facebook_access_token;
 
-  /*
+  /**
    * @ORM\Column(name="google_id", type="string", length=255, nullable=true) 
    */
   protected $google_id;
 
-  /*
+  /**
    * @ORM\Column(name="google_access_token", type="string", length=255, nullable=true) 
    */
   protected $google_access_token;
