@@ -25,7 +25,8 @@
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "hwi/oauth-bundle": "0.3.*@dev",
         "symfony-cmf/media-bundle": "1.1.*@dev",
-        "liip/imagine-bundle": "dev-master"
+        "liip/imagine-bundle": "dev-master",
+        "symfony/serializer": "2.5.*@dev"
 
     },
     "scripts": {

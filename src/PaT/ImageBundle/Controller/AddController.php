@@ -7,6 +7,11 @@ use PaT\ImageBundle\Entity\Pictures;
 use PaT\UserBundle\Entity\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+
 class AddController extends Controller
 {
     public function indexAction($albumid)
@@ -55,5 +60,34 @@ class AddController extends Controller
      
     		return $response;
 		}
+    }
+
+    public function getPicsAction($albumid){
+    	$encoders = array(new XmlEncoder(), new JsonEncoder());
+		$normalizers = array(new GetSetMethodNormalizer());
+
+		$serializer = new Serializer($normalizers, $encoders);
+
+    	$em = $this->getDoctrine()->getManager();
+    	if($this->container->get('security.context')->getToken()->getUser()->getId() != $em->getRepository('PaTVoyageBundle:Travel')->find($em->getRepository('PaTAlbumBundle:Album')->find($albumid)->getTravel())->getIdUser()){
+    		return $this->render('PaTMaquetteBundle:Maquette:notalowed.html.twig');
+    	} else{
+    		$result  = array();
+ 
+		    $pics = $em->getRepository('PaTImageBundle:Pictures')->findBy(array('album' => $albumid));                 //1
+		    if ( false!==$pics ) {
+		        /*foreach ( $pics as $pic ) {
+		          
+		            $obj['name'] = $pic->;
+		            $obj['size'] = filesize($storeFolder.$ds.$pic);
+		            $result[] = $obj;
+		            
+		        }*/
+		    }
+		     
+		    header('Content-type: text/json');              //3
+		    header('Content-type: application/json');
+		    echo json_encode($result);
+    	}
     }
 }

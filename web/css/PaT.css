@@ -16,6 +16,13 @@ html {
 body {
   padding-top: 70px;  /* Affiche sous la nav-bar */
   text-align: center;
+  background: url("../images/System/fond.jpg");
+  background-attachment:fixed;
+}
+
+.container {
+	background-color: rgba(255, 255, 255, 0.80);
+
 }
 
 .Thewelcome{
