@@ -27,19 +27,28 @@ class AddController extends Controller
 
     	$ds = DIRECTORY_SEPARATOR;
         $user = $this->container->get('security.context')->getToken()->getUser();
-        $storeFolder = "images" . $ds . "Users" . $ds . $user->getId() . $ds . $albumid . $ds;
+        //$storeFolder = "images" . $ds . "Users" . $ds . $user->getId() . $ds . $albumid . $ds;
 
         if (!empty($_FILES)) {
 
-        		$tempFile = $_FILES['file']['tmp_name'];          //3             
-      
+        		$tempFile = $_FILES['file']['tmp_name'];          
+      			
+        		$storeFolder = "images" . $ds . "Users" . $ds . $user->getId() . $ds;
+
 	    		$targetPath = __DIR__ . $ds . ".." . $ds . ".." . $ds . ".." . $ds . ".." . $ds . "web" . $ds . $storeFolder;  //4
 	     
         		if(!is_dir($targetPath)){
         			mkdir($targetPath);
         		}
 
-	    		$targetFile =  $targetPath. $_FILES['file']['name'];  //5
+        		$targetPath = $targetPath . $albumid . $ds;
+        		$storeFolder = $storeFolder . $albumid . $ds;
+
+        		if(!is_dir($targetPath)){
+        			mkdir($targetPath);
+        		}
+
+	    		$targetFile =  $targetPath. $_FILES['file']['name'];
 
 	    		$pic = new Pictures;
 
@@ -48,7 +57,7 @@ class AddController extends Controller
 	    		$pic->setAlbum($albumid);
 	    		$pic->setPath($storeFolder . $_FILES['file']['name']);
 
-	    		move_uploaded_file($tempFile,$targetFile); //6
+	    		move_uploaded_file($tempFile,$targetFile);
 
 	    		$em->persist($pic);
 	        	$em->flush();
