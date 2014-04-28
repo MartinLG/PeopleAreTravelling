@@ -21,7 +21,11 @@
 
     <div class="well">
       <div class="profile-picture-account">
-        <img src="{{ asset('images/profile_pic.gif') }}">
+        {% if profilePic is null %}
+          <img src="{{ asset('images/profile_pic.gif') }}">
+        {% else %}
+          <img src="{{ asset(profilePic) }}" style="width: 300px; height: auto;" class="img-thumbnail img-responsive">
+        {% endif %}
       </div>
       <div class="personnal-infos">
         <p class="pseudo-account"><strong class="gras">Username :</strong> {{ app.user.username }}</p>

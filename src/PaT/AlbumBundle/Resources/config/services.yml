@@ -1,0 +1,7 @@
+parameters:
+#    pa_t_album.example.class: PaT\AlbumBundle\Example
+
+services:
+#    pa_t_album.example:
+#        class: %pa_t_album.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,65 @@
+{% extends "PaTUserBundle::layout.html.twig" %}
+
+{% block title %}
+  Account - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+      {{ parent() }}
+      <link href="{{ asset('css/dropzone.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+  {% block Column_central %}
+    <h3>Add Picture</h3>
+
+    {% for type, flashMessages in app.session.flashbag.all() %}
+        {% for flashMessage in flashMessages %}
+            <div class=" alert alert-success "><li class="">
+                {{ flashMessage }}
+            </li></div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="well">
+      <p>Here we add Pics =)</p>
+      <form id="myDropzone" action="{{ path('UploadPic', { 'albumid': albumid }) }}" class="dropzone">
+        <div class="fallback">
+          <input name="file" type="file" multiple />
+        </div>
+      </form>
+    </div>
+  {% endblock %}
+
+
+
+  {% block Column_left %}
+    <h3>My links</h3>
+
+    <div class="well well-lg">
+      <p>test left</p>
+    </div>
+  {% endblock %}
+
+{% block javascripts_page %}
+  <script type="text/javascript">ChangeNavSel('navAccount');</script>
+  <script src="{{ asset('js/dropzone.min.js') }}"></script>
+  <script type="text/javascript">
+  Dropzone.options.myDropzone = {
+    maxFilesize: 1, // MB
+    accept: function(file, done) {
+      if (file.size > 1) {
+        done("the file is too big !");
+      }else if{
+        done("We just accept jpg, jpeg, png and bmp.")
+      }
+      else { done(); }
+    },
+    success: function(file, rep) {
+      $getJSON(rep, function(donnees){
+        alert(donnees.id . donnees.name . donnees.path);
+      }
+    }
+  };
+  </script>
+{% endblock %}
+
