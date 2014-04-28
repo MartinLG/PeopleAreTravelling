@@ -14,39 +14,45 @@
 {# Colomne au centre #}
 {% block Column_centrale %}
 
-	<h3>Liste des articles</h3>
+	<h3>Articles du voyage</h3>
 
-
-	<ul>
+	<ul class="row">
+		
 		{% for type, flashMessages in app.session.flashbag.all() %}
 			{% for flashMessage in flashMessages %}
 				<li><div class="alert alert-success">{{ flashMessage }}</div></li>
 			{% endfor %}
 		{% endfor %}
 
-		<div class="well well-lg">
+		<div class="well">
+			
 			{% for article in article %}
-				<li>
-					<div class="col-md-8">
-						<a href="{{ path('pa_t_article_view', { 'travelid' : travelid, 'id' : article.id })}}" >{{ article.title }}</a>
-					</div>
+				<!--Liste des articles -->
+				<div class="row">
+					<li>
+						<!-- Nom du voyage -->
+						<div class="row col-md-8">
+							<a href="{{ path('pa_t_article_view', { 'travelid' : travelid, 'id' : article.id })}}" >{{ article.title }}</a>
+						</div>
 
-					<div class="col-md-2">
-						<a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}">
-							<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash" ></span> Supprimer</button>
-						</a>
-					</div>
+						<!-- Bouttons -->
+						<div class="col-md-2">
+							<a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}">
+								<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash" ></span> Supprimer</button>
+							</a>
+						</div>
 
-					<div class="col-md-2">
-						<a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}">
-							<button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button>
-						</a>
-					</div> 
-				</li>
+						<div class="col-md-2">
+							<a href="{{ path('pa_t_article_change', { 'id' : article.id, 'travelid' :  travelid  })}}">
+								<button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button>
+							</a>
+						</div> 
+					</li>
+				</div>
+	
 			{% endfor %}
+
 		</div>
 	</ul>
 	
-
 {% endblock %}
-

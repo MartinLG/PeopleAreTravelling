@@ -8,26 +8,37 @@
 {% block Column_left %}
 	{{ parent() }}
 	<ul>
-	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Add article</a></li>
+	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Creat article</a></li>
 
 {% endblock %}
 
 {# Colomne au centre #}
 {% block Column_centrale %}
 
-{% for article in article %}
-<h3>{{ article.title }}</h3>
+	{% for article in article %}
+	<div>
+		<h3>{{ article.title }}</h3>
 
-<ul class="well">
-		
-		<li>
-			<div class="col-md-8"><a href="{{ path('', { 'id' : article.id })}}" >{{ article.title }}</a></div>
+		<ul class="well">
+				
+				<li>
+					<div class="row">
+						<div class="col-md-8"><a href="{{ path('', { 'id' : article.id })}}" >{{ article.title }}</a></div>
 
-			<div class="col-md-2"><a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button></a></div>
-			<div class="col-md-2"><a href="{{ path('pa_t_article_change', { 'id' : article.id })}}"><button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button></a></div>
-		</li>
-
-	
-</ul>
-{% endfor %}
+						<div class="col-md-2">
+							<a href="{{ path('pa_t_article_delete', { 'id' : article.id, 'travelid' :  travelid })}}">
+								<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
+							</a>
+						</div>
+					
+						<div class="col-md-2">
+							<a href="{{ path('pa_t_article_change', { 'id' : article.id })}}">
+								<button type="button" class="btn btn-default btn-sm" href="#"><span class="glyphicon glyphicon-edit"></span> Modifier</button>
+							</a>
+						</div>
+					</div>
+				</li>
+		</ul>
+	</div>
+	{% endfor %}
 {% endblock %}
