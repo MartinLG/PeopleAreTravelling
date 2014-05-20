@@ -9,6 +9,9 @@
 	{{ parent() }}
 	<hr>
 	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Add article</a></li> 
+	<hr>
+	<li><a href="{{ path('New_Album', { 'idtravel' :  travelid   })}}">Add album</a></li>
+
 {% endblock %}
 
 {# Colomne au centre #}
