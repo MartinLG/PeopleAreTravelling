@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d315ed65f9a3beb25c8ead277b1870f9",
+    "hash": "b3817d95f83eebf462539dd1810de268",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1375,12 +1375,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "2be6f957694d06d6d2a3203ec16ecdbf0d849765"
+                "reference": "db09acd5d4d46572580ae403069a3286430d6c62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/2be6f957694d06d6d2a3203ec16ecdbf0d849765",
-                "reference": "2be6f957694d06d6d2a3203ec16ecdbf0d849765",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/db09acd5d4d46572580ae403069a3286430d6c62",
+                "reference": "db09acd5d4d46572580ae403069a3286430d6c62",
                 "shasum": ""
             },
             "require": {
@@ -1395,11 +1395,14 @@
                 "amazonwebservices/aws-sdk-for-php": "~1.0",
                 "aws/aws-sdk-php": "~2.4",
                 "doctrine/cache": "~1.1",
+                "doctrine/mongodb-odm": "1.0.*",
+                "doctrine/orm": "~2.3",
                 "ext-gd": "*",
                 "phpunit/phpunit": "~3.7",
                 "psr/log": "~1.0",
                 "symfony/browser-kit": "~2.3",
                 "symfony/console": "~2.3",
+                "symfony/form": "~2.3",
                 "symfony/yaml": "~2.3",
                 "twig/twig": "~1.0"
             },
@@ -1437,7 +1440,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2014-04-14 19:53:55"
+            "time": "2014-04-28 13:21:47"
         },
         {
             "name": "monolog/monolog",
@@ -1752,12 +1755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony-cmf/MediaBundle.git",
-                "reference": "fc5ef9f5857759eabf813f1ee5e34db8826603d4"
+                "reference": "a8f6398779a7ffa876d995d5ba7cc5bbbc390f9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/MediaBundle/zipball/fc5ef9f5857759eabf813f1ee5e34db8826603d4",
-                "reference": "fc5ef9f5857759eabf813f1ee5e34db8826603d4",
+                "url": "https://api.github.com/repos/symfony-cmf/MediaBundle/zipball/a8f6398779a7ffa876d995d5ba7cc5bbbc390f9e",
+                "reference": "a8f6398779a7ffa876d995d5ba7cc5bbbc390f9e",
                 "shasum": ""
             },
             "require": {
@@ -1806,7 +1809,7 @@
                 "image",
                 "media"
             ],
-            "time": "2014-04-18 07:03:36"
+            "time": "2014-04-28 15:11:13"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2319,7 +2322,7 @@
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
         "hwi/oauth-bundle": 20,
-        "jasny/twig-extensions": 20
+        "jasny/twig-extensions": 20,
         "symfony-cmf/media-bundle": 20,
         "liip/imagine-bundle": 20,
         "symfony/serializer": 20
