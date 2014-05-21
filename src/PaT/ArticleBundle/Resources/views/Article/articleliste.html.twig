@@ -7,8 +7,10 @@
 {# Colomne de gauche #}
 {% block Column_left %}
 	{{ parent() }}
-	<ul>
+	<hr>
 	<li><a href="{{ path('pa_t_article_add', { 'travelid' :  travelid   })}}">Creat article</a></li>
+	<hr>
+	<li><a href="{{ path('UploadPic', { 'albumid' :  travelid   })}}">Add Galery</a></li>
 
 {% endblock %}
 

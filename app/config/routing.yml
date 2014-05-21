@@ -1,3 +1,7 @@
+pa_t_comm:
+    resource: "@PaTCommBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pa_t_album:
     resource: "@PaTAlbumBundle/Resources/config/routing.yml"
     prefix:   /album
