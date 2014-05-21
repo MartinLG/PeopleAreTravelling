@@ -16,8 +16,11 @@ html {
 body {
   padding-top: 70px;  /* Affiche sous la nav-bar */
   text-align: center;
-  background: url("../images/System/fond.jpg");
-  background-attachment:fixed;
+  background: url("../images/System/fond.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container {
@@ -65,6 +68,10 @@ body {
 }
 
 /* Caroussel */
+
+.carrousel-inner{
+	margin-bottom: 20px;
+}
 
 ul { 
 list-style-type: none; 
